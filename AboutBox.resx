@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -1834,7 +1834,7 @@
 </value>
   </data>
   <data name="textBoxDescription.Text" xml:space="preserve">
-    <value>YTP++ Version 2.2
+    <value>YTP++ Version 2.3
 Part of the YTP+ Project
 
 This software is distributed as Free and Open Source Software (FOSS) and if you have recieved this software as part of a bundle, trade, or purchase; you have been scammed.

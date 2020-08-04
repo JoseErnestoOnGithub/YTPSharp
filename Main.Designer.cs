@@ -1,4 +1,4 @@
-﻿namespace YTPPlusPlus
+namespace YTPPlusPlus
 {
     partial class YTPPlusPlus
     {
@@ -1431,7 +1431,7 @@
             this.Name = "YTPPlusPlus";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "YTP++ [v2.2]";
+            this.Text = "YTP++ [v2.3]";
             this.Load += new System.EventHandler(this.YTPPlusPlus_Load);
             this.Video.ResumeLayout(false);
             this.Settings.ResumeLayout(false);
@@ -1596,4 +1596,3 @@
         private System.Windows.Forms.MenuItem theme_custom;
     }
 }
-

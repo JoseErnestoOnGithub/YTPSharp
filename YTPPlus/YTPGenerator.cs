@@ -30,7 +30,21 @@ namespace YTPPlus
         public bool effect10;
         public bool effect11;
         public bool effect12;
+        public bool effect13;
+        public bool effect14;
+        public bool effect15;
+        public bool effect16;
+        public bool effect17;
+        public bool effect18;
+        public bool effect19;
+        public bool effect20;
+        public bool effect21;
+        public bool effect22;
+        public bool effect23;
+        public bool effect24;
+        public bool effect25;
 
+        public bool accel = true;
         public bool pluginTest = false;
         public int pluginCount = 0;
         public List<string> plugins = new List<string>();
@@ -40,47 +54,9 @@ namespace YTPPlus
         public int width = 640;
         public int height = 480;
         public bool intro = false;
-        public bool outro = true;
+        public bool outro = false;
 
         public Utilities toolBox = new Utilities();
-
-        public void configurate()
-        {
-            //add some code to load this from a .cfg file later
-            toolBox.FFMPEG = "ffmpeg";
-            toolBox.FFPROBE = "ffprobe";
-            toolBox.MAGICK = "magick ";
-            toolBox.TEMP = "temp/" + "job_" + DateTimeOffset.Now.ToUnixTimeMilliseconds() + "\\";
-            Directory.CreateDirectory(toolBox.TEMP);
-            toolBox.SOURCES = "sources/";
-            toolBox.SOUNDS = "sounds/";
-            toolBox.MUSIC = "music/";
-            toolBox.RESOURCES = "resources/";
-
-            effect1 = true;
-            effect2 = true;
-            effect3 = true;
-            effect4 = true;
-            effect5 = true;
-            effect6 = true;
-            effect7 = true;
-            effect8 = true;
-            effect9 = true;
-            effect10 = true;
-            effect11 = true;
-            effect12 = true;
-
-            pluginTest = false;
-            pluginCount = 0;
-            plugins = new List<string>();
-
-            insertTransitionClips = true;
-
-            width = 640;
-            height = 480;
-            intro = false;
-            outro = true;
-        }
 
         EffectsFactory effectsFactory;
         ArrayList sourceList = new ArrayList();
@@ -90,33 +66,6 @@ namespace YTPPlus
         public YTPGenerator(string output)
         {
             this.OUTPUT_FILE = output;
-            //configurate();
-        }
-
-        public YTPGenerator(String output, double min, double max)
-        {
-            this.OUTPUT_FILE = output;
-            this.MIN_STREAM_DURATION = min;
-            this.MAX_STREAM_DURATION = max;
-            //configurate();
-        }
-        public YTPGenerator(String output, double min, double max, int maxclips)
-        {
-            this.OUTPUT_FILE = output;
-            this.MIN_STREAM_DURATION = min;
-            this.MAX_STREAM_DURATION = max;
-            this.MAX_CLIPS = maxclips;
-            //configurate();
-        }
-        public YTPGenerator(String output, double min, double max, int maxclips, int width, int height)
-        {
-            this.OUTPUT_FILE = output;
-            this.MIN_STREAM_DURATION = min;
-            this.MAX_STREAM_DURATION = max;
-            this.MAX_CLIPS = maxclips;
-            this.width = width;
-            this.height = height;
-            //configurate();
         }
         public void setMaxClips(int clips)
         {
@@ -144,8 +93,6 @@ namespace YTPPlus
                 Console.WriteLine("No sources added...");
                 return;
             }
-
-            Console.WriteLine("poop_1");
 
             if (File.Exists(OUTPUT_FILE))
                 File.Delete(OUTPUT_FILE);
@@ -185,7 +132,7 @@ namespace YTPPlus
                         double endOfClip = startOfClip + randomDouble(MIN_STREAM_DURATION, MAX_STREAM_DURATION);
                         Console.WriteLine("Beginning of clip " + i + ": " + startOfClip.ToString("0.#########################", new CultureInfo("en-US")));
                         Console.WriteLine("Ending of clip " + i + ": " + endOfClip.ToString("0.#########################", new CultureInfo("en-US")) + ", in seconds: ");
-                        if (randomInt(0, 15 + pluginCount) == 15 && insertTransitionClips == true)
+                        if (randomInt(0, 15) == 15 && insertTransitionClips == true)
                         {
                             Console.WriteLine("Tryina use a diff source");
                             toolBox.copyVideo(toolBox.SOURCES + effectsFactory.pickSource(), toolBox.TEMP + "video" + i, width, height);
@@ -195,21 +142,20 @@ namespace YTPPlus
                             toolBox.snipVideo(sourceToPick, startOfClip, endOfClip, toolBox.TEMP + "video" + i, width, height);
                         }
                         //Add a random effect to the video
-                        int effect = giveProbability(0, 15 + pluginCount);
+                        int effect = giveProbability(0, 26 + pluginCount);
                         if (pluginTest)
-                            effect = 16;
-                        Console.WriteLine("STARTING EFFECT ON CLIP " + i + " EFFECT" + effect);
+                            effect = 27;
+                        else if (effect > 0)
+                            Console.WriteLine("STARTING EFFECT ON CLIP " + i + " EFFECT" + effect);
                         String clipToWorkWith = toolBox.TEMP + "video" + i + ".mp4";
                         switch (effect)
                         {
                             case 1:
-                                //random sound
                                 if (effect1 == true)
                                     effectsFactory.effect_RandomSound(clipToWorkWith, width, height);
                                 break;
                             case 2:
                                 if (effect2 == true)
-                                    //random sound
                                     effectsFactory.effect_RandomSoundMute(clipToWorkWith, width, height);
                                 break;
                             case 3:
@@ -234,59 +180,95 @@ namespace YTPPlus
                                 break;
                             case 8:
                                 if (effect8 == true)
-                                    effectsFactory.effect_HighPitch(clipToWorkWith, width, height);
+                                    effectsFactory.effect_Tremolo(clipToWorkWith, width, height);
                                 break;
                             case 9:
                                 if (effect9 == true)
-                                    effectsFactory.effect_LowPitch(clipToWorkWith, width, height);
+                                    effectsFactory.effect_Earrape(clipToWorkWith, width, height);
                                 break;
                             case 10:
                                 if (effect10 == true)
-                                    effectsFactory.effect_Dance(clipToWorkWith, width, height);
+                                    effectsFactory.effect_SpeedUpHighPitch(clipToWorkWith, width, height);
                                 break;
                             case 11:
                                 if (effect11 == true)
+                                    effectsFactory.effect_SlowDownLowPitch(clipToWorkWith, width, height);
+                                break;
+                            case 12:
+                                if (effect12 == true)
+                                    effectsFactory.effect_HighPitch(clipToWorkWith, width, height);
+                                break;
+                            case 13:
+                                if (effect13 == true)
+                                    effectsFactory.effect_LowPitch(clipToWorkWith, width, height);
+                                break;
+                            case 14:
+                                if (effect14 == true)
+                                    effectsFactory.effect_ForwardReverse(clipToWorkWith, width, height);
+                                break;
+                            case 15:
+                                if (effect15 == true)
+                                    effectsFactory.effect_ReverseForward(clipToWorkWith, width, height);
+                                break;
+                            case 16:
+                                if (effect16 == true)
+                                    effectsFactory.effect_Pixelate(clipToWorkWith, width, height);
+                                break;
+                            case 17:
+                                if (effect17 == true)
+                                    effectsFactory.effect_BadQuality(clipToWorkWith, width, height);
+                                break;
+                            case 18:
+                                if (effect18 == true)
+                                    effectsFactory.effect_Emboss(clipToWorkWith, width, height);
+                                break;
+                            case 19:
+                                if (effect19 == true)
+                                    effectsFactory.effect_SymmetryHorizontal1(clipToWorkWith, width, height);
+                                break;
+                            case 20:
+                                if (effect20 == true)
+                                    effectsFactory.effect_SymmetryHorizontal2(clipToWorkWith, width, height);
+                                break;
+                            case 21:
+                                if (effect21 == true)
+                                    effectsFactory.effect_SymmetryVertical1(clipToWorkWith, width, height);
+                                break;
+                            case 22:
+                                if (effect22 == true)
+                                    effectsFactory.effect_SymmetryVertical2(clipToWorkWith, width, height);
+                                break;
+                            case 23:
+                                if (effect23 == true)
+                                    effectsFactory.effect_GMajor(clipToWorkWith, width, height);
+                                break;
+                            case 24:
+                                if (effect24 == true)
+                                    effectsFactory.effect_Dance(clipToWorkWith, width, height);
+                                break;
+                            case 25:
+                                if (effect25 == true)
                                     effectsFactory.effect_Squidward(clipToWorkWith, width, height);
                                 break;
-                            /*case 12:
-                                if (effect12 == true)
-                                {
-                                    effectsFactory.effect_RainbowTrail(clipToWorkWith, width, height, startOfClip, endOfClip);
-                                }
-                                break;*/
                             default:
-                                if (effect > 15)
+                                if (effect >= 27 && effect <= 26+pluginCount)
                                 {
-                                    if (effect <= 15+pluginCount)
-                                    {
-                                        effectsFactory.effect_Plugin(clipToWorkWith, width, height, plugins[rnd.Next(plugins.Count)], startOfClip, endOfClip);
-                                    }
+                                    effectsFactory.effect_Plugin(clipToWorkWith, width, height, plugins[rnd.Next(plugins.Count)], startOfClip, endOfClip);
                                 }
-                                break;
                         }
                     }
                 }
                 if (outro)
                 {
-                    MAX_CLIPS++;
                     Console.WriteLine("Outro clip enabled.");
-                    Console.WriteLine("Done: " + Decimal.Divide(MAX_CLIPS - 1, MAX_CLIPS));
-                    vidThreadWorker.ReportProgress(Convert.ToInt32(Decimal.Divide(MAX_CLIPS - 1, MAX_CLIPS) * 100, new CultureInfo("en-US")));
+                    Console.WriteLine("Done: " + Decimal.Divide(MAX_CLIPS, MAX_CLIPS));
+                    vidThreadWorker.ReportProgress(Convert.ToInt32(Decimal.Divide(MAX_CLIPS, MAX_CLIPS) * 100, new CultureInfo("en-US")));
                     Console.WriteLine(toolBox.outro);
                     Console.WriteLine("STARTING CLIP " + "video" + MAX_CLIPS);
                     toolBox.copyVideo(toolBox.outro, toolBox.TEMP + "video" + MAX_CLIPS, width, height);
                     MAX_CLIPS++;
                 }
-                /*for (int i = 0; i < MAX_CLIPS; i++)
-                {
-                    if (File.Exists(toolBox.TEMP + "video" + i + ".mp4"))
-                    {
-                        writer.WriteLineAsync("file 'video" + i + ".mp4'\n"); //writing to same folder
-                    }
-                }*/
-                //Thread.sleep(10000);
                 toolBox.concatenateVideo(MAX_CLIPS, OUTPUT_FILE);
-                //Thread.sleep(4000);
 
             }
             catch (Exception ex)
@@ -295,7 +277,6 @@ namespace YTPPlus
                 exc = ex;
                 failed = true;
             }
-            //for (int i=0; i<100; i++) {
             cleanUp();
             rmDir(toolBox.TEMP);
         }
@@ -322,6 +303,7 @@ namespace YTPPlus
             Console.WriteLine("My SOURCES is: " + toolBox.SOURCES);
             Console.WriteLine("My MUSIC is: " + toolBox.MUSIC);
             Console.WriteLine("My RESOURCES is: " + toolBox.RESOURCES);
+            Console.WriteLine("Acceleration is: " + toolBox.accel + " and arg is " + toolBox.ACCEL);
             vidThreadWorker.DoWork += new DoWorkEventHandler(vidThread);
             vidThreadWorker.WorkerReportsProgress = true;
             vidThreadWorker.WorkerSupportsCancellation = true;
@@ -330,7 +312,6 @@ namespace YTPPlus
             vidThreadWorker.RunWorkerAsync();
             return this;
         }
-
 
         public bool isDone()
         {
@@ -359,29 +340,10 @@ namespace YTPPlus
             return rnd.Next((max - min) + 1) + min;
             //return new Random((int)GetUnixEpoch(DateTime.UtcNow)).Next((max - min) + 1) + min;
         }
-        public int giveProbability(int min, int max) //still unfinished
+        public int giveProbability(int min, int max)
         {
-            /*
-            int roll = rnd.Next(0,1);
-            float[] array = new float[max];
-            for (int i = min; i < max; i++)
-            {
-                array.SetValue(0.1666F, i);
-            }
-            float sum = 0;
-            int completedRoll = 0;
-            for (int i = 0; i < 6; i++)
-            {
-                sum += array[i];
-                if (sum > roll) break;
-                completedRoll = i;
-            }
-            Console.WriteLine(completedRoll);*/
-            //return completedRoll;
             return rnd.Next((max - min) + 1) + min;
-            //return new Random((int)GetUnixEpoch(DateTime.UtcNow)).Next((max - min) + 1) + min;
         }
-
 
         public void cleanUp()
         {

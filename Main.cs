@@ -1,4 +1,4 @@
-﻿using DiscordRPC;
+using DiscordRPC;
 using DiscordRPC.Logging;
 using System;
 using System.Collections.Generic;
@@ -40,8 +40,23 @@ namespace YTPPlusPlus
         bool effect9Def = true;
         bool effect10Def = true;
         bool effect11Def = true;
+        bool effect12Def = true;
+        bool effect13Def = true;
+        bool effect14Def = true;
+        bool effect15Def = true;
+        bool effect16Def = true;
+        bool effect17Def = true;
+        bool effect18Def = true;
+        bool effect19Def = true;
+        bool effect20Def = true;
+        bool effect21Def = true;
+        bool effect22Def = true;
+        bool effect23Def = true;
+        bool effect24Def = true;
+        bool effect25Def = true;
         bool introBoolDef = false;
         bool outroBoolDef = true;
+        bool accelDef = true;
         bool pluginTestDef = false;
         int clipCountDef = 20;
         int widthDef = 640;
@@ -50,8 +65,8 @@ namespace YTPPlusPlus
         decimal maxStreamDef = 0.4M;
         string introDef = "resources\\intro.mp4";
         string outroDef = "resources\\outro.mp4";
-        string ffmpegDef = "ffmpeg.exe";
-        string ffprobeDef = "ffprobe.exe";
+        string ffmpegDef = "ffmpeg";
+        string ffprobeDef = "ffprobe";
         string magickDef = "magick";
         string sourcesDef = "sources\\";
         string tempDef = "temp\\";
@@ -76,10 +91,24 @@ namespace YTPPlusPlus
             this.effect_SlowDown.Checked = effect5Def;
             this.effect_Chorus.Checked = effect6Def;
             this.effect_Vibrato.Checked = effect7Def;
-            this.effect_HighPitch.Checked = effect8Def;
-            this.effect_SlowDown.Checked = effect9Def;
-            this.effect_Dance.Checked = effect10Def;
-            this.effect_Squidward.Checked = effect11Def;
+            this.effect_Tremolo.Checked = effect8Def;
+            this.effect_Earrape.Checked = effect9Def;
+            this.effect_SpeedUpHighPitch.Checked = effect10Def;
+            this.effect_SlowDownLowPitch.Checked = effect11Def;
+            this.effect_HighPitch.Checked = effect12Def;
+            this.effect_LowPitch.Checked = effect13Def;
+            this.effect_FowardReverse.Checked = effect14Def;
+            this.effect_ReverseFoward.Checked = effect15Def;
+            this.effect_Pixelate.Checked = effect16Def;
+            this.effect_BadQuality.Checked = effect17Def;
+            this.effect_Emboss.Checked = effect18Def;
+            this.effect_SymmetryHorizontal1.Checked = effect19Def;
+            this.effect_SymmetryHorizontal2.Checked = effect20Def;
+            this.effect_SymmetryVertical1.Checked = effect21Def;
+            this.effect_SymmetryVertical2.Checked = effect22Def;
+            this.effect_GMajor.Checked = effect23Def;
+            this.effect_Dance.Checked = effect24Def;
+            this.effect_Squidward.Checked = effect25Def;
             this.pluginTest.Checked = pluginTestDef;
             this.InsertIntro.Checked = introBoolDef;
             this.InsertOutro.Checked = outroBoolDef;
@@ -141,10 +170,25 @@ namespace YTPPlusPlus
             this.effect_SlowDown.Checked = Properties.Settings.Default.effect_SlowDown;
             this.effect_Chorus.Checked = Properties.Settings.Default.effect_Chorus;
             this.effect_Vibrato.Checked = Properties.Settings.Default.effect_Vibrato;
+            this.effect_Tremolo.Checked = Properties.Settings.Default.effect_Tremolo;
+            this.effect_Earrape.Checked = Properties.Settings.Default.effect_Earrape;
+            this.effect_SpeedUpHighPitch.Checked = Properties.Settings.Default.effect_SpeedUpHighPitch;
+            this.effect_SlowDownLowPitch.Checked = Properties.Settings.Default.effect_SlowDownLowPitch;
             this.effect_HighPitch.Checked = Properties.Settings.Default.effect_HighPitch;
-            this.effect_SlowDown.Checked = Properties.Settings.Default.effect_SlowDown;
+            this.effect_LowPitch.Checked = Properties.Settings.Default.effect_LowPitch;
+            this.effect_ForwardReverse.Checked = Properties.Settings.Default.effect_ForwardReverse;
+            this.effect_ReverseForward.Checked = Properties.Settings.Default.effect_ReverseForward;
+            this.effect_Pixelate.Checked = Properties.Settings.Default.effect_Pixelate;
+            this.effect_BadQuality.Checked = Properties.Settings.Default.effect_BadQuality;
+            this.effect_Emboss.Checked = Properties.Settings.Default.effect_Emboss; 
+            this.effect_SymmetryHorizontal1.Checked = Properties.Settings.Default.effect_SymmetryHorizontal1;
+            this.effect_SymmetryHorizontal2.Checked = Properties.Settings.Default.effect_SymmetryHorizontal2;
+            this.effect_SymmetryVertical1.Checked = Properties.Settings.Default.effect_SymmetryVertical1;
+            this.effect_SymmetryVertical2.Checked = Properties.Settings.Default.effect_SymmetryVertical2;
+            this.effect_GMajor.Checked = Properties.Settings.Default.effect_GMajor;
             this.effect_Dance.Checked = Properties.Settings.Default.effect_Dance;
             this.effect_Squidward.Checked = Properties.Settings.Default.effect_Squidward;
+            this.accelDef = Properties.Settings.Default.AccelEnabled;
             this.pluginTest.Checked = Properties.Settings.Default.PluginTest;
             this.InsertIntro.Checked = Properties.Settings.Default.InsertIntro;
             this.InsertOutro.Checked = Properties.Settings.Default.InsertOutro;
@@ -167,29 +211,13 @@ namespace YTPPlusPlus
             {
                 theme_light.Checked = false;
                 theme_dark.Checked = true;
-                theme_custom.Checked = false;
                 switchTheme(Color.FromName("ControlDarkDark"), Color.FromName("ControlDark"), Color.FromName("Control"), Color.FromName("ControlText"));
             }
             else if (Properties.Settings.Default.Theme == "Light")
             {
                 theme_light.Checked = true;
                 theme_dark.Checked = false;
-                theme_custom.Checked = false;
                 switchTheme(Color.FromName("ControlLightLight"), Color.FromName("ControlLight"), Color.FromName("Control"), Color.FromName("ControlText"));
-            }
-            else if (Properties.Settings.Default.Theme == "Custom") {
-                theme_custom.Checked = true;
-                theme_dark.Checked = false;
-                theme_light.Checked = false;
-                alert("CUSTOM THEME NOT IMPLEMENTED");
-            } else
-            {
-                Properties.Settings.Default.Theme = "Dark";
-                theme_light.Checked = false;
-                theme_dark.Checked = true;
-                theme_custom.Checked = false;
-                switchTheme(Color.FromName("ControlDarkDark"), Color.FromName("ControlDark"), Color.FromName("Control"), Color.FromName("ControlText"));
-                alert("THEME NOT SUPPORTED");
             }
             pluginCount = 0;
             enabledPlugins.Clear();
@@ -261,8 +289,8 @@ namespace YTPPlusPlus
         //end console import
 
 
-        public String[] titles = { "Yo", "Mmmmm!", "I'm the invisible man...", "Luigi, look!", "You want it?", "WTF Booooooooooom" };
-        public FileInfo fi; //= new FileInfo("D:\\Users\\Kisu-Amare\\Downloads\\spongebob1.mp4");
+        public String[] titles = {"Yo", "Mmmmm!", "I'm the invisible man...", "Luigi, look!", "You want it?", "WTF Booooooooooom"};
+        public FileInfo fi;
         public void TestMagick()
         {
             try
@@ -376,8 +404,6 @@ namespace YTPPlusPlus
                 Properties.Settings.Default.Resources = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Resources;
             SetVars();
             HideConsoleWindow();
-            //this.Player.SetMedia(fi);
-            //this.Player.Play();
             this.Player.Enabled = false;
             this.m_saveas.Enabled = false;
             this.SaveAs.Enabled = false;
@@ -425,8 +451,6 @@ namespace YTPPlusPlus
                         Properties.Settings.Default.Resources = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Resources;
                     SetVars();
                     HideConsoleWindow();
-                    //this.Player.SetMedia(fi);
-                    //this.Player.Play();
                     this.SaveAs.Enabled = false;
                     this.m_saveas.Enabled = false;
                     TestFFMPEG();
@@ -579,36 +603,17 @@ namespace YTPPlusPlus
         }
         private void m_helpeffects_Click(object sender, EventArgs e)
         {
-            alert("From the YTP+ Documentation: \n\"Currently, these effects are based on a switch statement, and each effect has an equal chance of appearing, which means if you "
-                + "turn one of them off, there will be more unedited clips. Additionally, there is a 1/2 chance of there even being an effect on a clip. "
-                + "You do the math. There's 11 effects. 1/2 chance of each effect occuring. That means, regardless of being turned on or off, "
-                + "each effect has a 1/22 chance of occuring. Pretty nasty, right? I'll add sliders for \"frequency\" in the future...\n\n"
-                + "This might be beneficial to know also: There's a 1/15 chance of a \"transition\" clip being used in place of your sources, too. "
-                + "So for every 15 clips you tell YTP+ to generate, one of them will be a transition clip from the folder you provide the program. "
-                + "It's a big mess of numbers.\n\n"
-                + "The reason there aren't frequency sliders now is because someone will probably break them somehow and I don't have the time to debug. "
-                + "Give me a few weeks for an update...\"");
+            alert("From the YTP+ Documentation: \n\"Currently, these effects are based on a switch statement, and each effect has an equal chance of appearing, which means if you turn one of them off, there will be more unedited clips. Additionally, there is a 1/2 chance of there even being an effect on a clip. You do the math. There's 11 effects. 1/2 chance of each effect occuring. That means, regardless of being turned on or off, each effect has a 1/22 chance of occuring. Pretty nasty, right? I'll add sliders for \"frequency\" in the future...\n\nThis might be beneficial to know also: There's a 1/15 chance of a \"transition\" clip being used in place of your sources, too. So for every 15 clips you tell YTP+ to generate, one of them will be a transition clip from the folder you provide the program. It's a big mess of numbers.\n\nThe reason there aren't frequency sliders now is because someone will probably break them somehow and I don't have the time to debug. Give me a few weeks for an update...\"");
         }
 
         private void m_helpconfigure_Click(object sender, EventArgs e)
         {
-            alert("Configuration can be done within the \"Tools\" menu.\n\n"
-                + "You can set folders that will be used for things such "
-                + "as temporary files, source clips, sound effects, and "
-                + "music. Music and sound effect directories should contain "
-                + "*.mp3 files only, while videos (source clips) should all be "
-                + "*.mp4 files.\n\nAs for Magick and FFMPEG/FFPROBE configuration, Magick is only needed "
-                + "for the \"Squidward\" effect as all other effects use the FFMPEG/FFPROBE "
-                + "libraries within distributions of the applications. Licenses for FFMPEG and FFPROBE can be found in the \"Help\" menu.\n\n"
-                + "By default, all settings should be correct unless you are on a 32 bit "
-                + "system, in which case there may be a possibility where you have to set "
-                + "the directory for Magick. If anything goes wrong, reset and check your settings."
-                );
+            alert("Configuration can be done within the \"Tools\" menu.\n\nYou can set folders that will be used for things such as temporary files, source clips, sound effects, and music. Music and sound effect directories should contain *.mp3 files only, while videos (source clips) should all be *.mp4 files.\n\nAs for Magick and FFMPEG/FFPROBE configuration, Magick is only needed for the \"Squidward\" effect as all other effects use the FFMPEG/FFPROBE libraries within distributions of the applications. Licenses for FFMPEG and FFPROBE can be found in the \"Help\" menu.\n\nBy default, all settings should be correct unless you are on a 32 bit system, in which case there may be a possibility where you have to set the directory for Magick. If anything goes wrong, reset and check your settings.");
         }
 
         private void m_ytphubdiscord_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://discord.gg/bzhzRmg");
+            System.Diagnostics.Process.Start("http://discord.gg/bzhzRmg");
         }
 
         private void m_reset_Click(object sender, EventArgs e)
@@ -849,13 +854,10 @@ namespace YTPPlusPlus
                     this.SaveAs.Enabled = false;
                     Render.Enabled = false;
                     m_render.Enabled = false;
-                    Console.WriteLine("poop");
                     YTPGenerator generator = new YTPGenerator(temp + "tempoutput.mp4");
-                    Console.WriteLine("poop2");
                     generator.toolBox.FFMPEG = "\"" + ffmpeg + "\"";
                     generator.toolBox.FFPROBE = "\"" + ffprobe + "\"";
                     generator.toolBox.MAGICK = "\"" + magick + "\"";
-                    Console.WriteLine("poop3");
                     string jobDir = temp + "job_" + DateTimeOffset.Now.ToUnixTimeMilliseconds() + "\\";
                     generator.toolBox.TEMP = jobDir;
                     Directory.CreateDirectory(jobDir);
@@ -866,7 +868,40 @@ namespace YTPPlusPlus
                     generator.toolBox.SOURCES = this.TransitionDir.Text;
                     generator.toolBox.intro = this.Intro.Text;
                     generator.toolBox.outro = this.Outro.Text;
-                    Console.WriteLine("poop4");
+		    generator.toolBox.accelEnabled = this.EnableAccel.Checked;
+                    if (generator.toolBox.accelEnabled == true)
+                    {
+                        ManagementObjectSearcher objvide = new ManagementObjectSearcher("select * from Win32_VideoController");
+                        foreach (ManagementObject obj in objvide.Get())
+                        {
+                            foreach (PropertyData property in obj.Properties)
+                            {
+                                if (property.Name == "Description")
+                                {
+                                    string name = property.Value.ToString();
+                                    if (name.ToLower().Contains("nvidia") || name.ToLower().Contains("gtx") || name.ToLower().Contains("titan") || name.ToLower().Contains("rtx") || name.ToLower().Contains("quatro"))
+                                    {
+                                        Console.WriteLine("Nvidia GPU detected, using NVENC for acceleration");
+                                        generator.toolBox.ACCEL = " -c:v h264_nvenc";
+                                    }
+                                    else if (name.ToLower().Contains("amd") || name.ToLower().Contains("radeon") || name.ToLower().Contains("rx") || name.ToLower().Contains("vega"))
+                                    {
+                                        Console.WriteLine("AMD GPU detected, using AMF for acceleration");
+                                        generator.toolBox.ACCEL = " -c:v h264_amf";
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Unknown GPU??? Got: " + name + " but expected to be a \"AMD\" or \"Nvidia\" GPU");
+                                        generator.toolBox.ACCEL = "";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        generator.toolBox.ACCEL = "";
+                    }
                     generator.effect1 = this.effect_RandomSound.Checked;
                     generator.effect2 = this.effect_RandomSoundMute.Checked;
                     generator.effect3 = this.effect_Reverse.Checked;
@@ -874,10 +909,24 @@ namespace YTPPlusPlus
                     generator.effect5 = this.effect_SlowDown.Checked;
                     generator.effect6 = this.effect_Chorus.Checked;
                     generator.effect7 = this.effect_Vibrato.Checked;
-                    generator.effect8 = this.effect_HighPitch.Checked;
-                    generator.effect9 = this.effect_LowPitch.Checked;
-                    generator.effect10 = this.effect_Dance.Checked;
-                    generator.effect11 = this.effect_Squidward.Checked;
+                    generator.effect8 = this.effect_Tremolo.Checked;
+                    generator.effect9 = this.effect_Earrape.Checked;
+                    generator.effect10 = this.effect_SpeedUpHighPitch.Checked;
+                    generator.effect11 = this.effect_SlowDownLowPitch.Checked;
+                    generator.effect12 = this.effect_HighPitch.Checked;
+                    generator.effect13 = this.effect_LowPitch.Checked;
+                    generator.effect14 = this.effect_ForwardReverse.Checked;
+                    generator.effect15 = this.effect_ReverseForward.Checked;
+                    generator.effect16 = this.effect_Pixelate.Checked;
+                    generator.effect17 = this.effect_BadQuality.Checked;
+                    generator.effect18 = this.effect_Emboss.Checked;
+                    generator.effect19 = this.effect_SymmetryHorizontal1.Checked;
+                    generator.effect20 = this.effect_SymmetryHorizontal2.Checked;
+                    generator.effect21 = this.effect_SymmetryVertical1.Checked;
+                    generator.effect22 = this.effect_SymmetryVertical2.Checked;
+                    generator.effect23 = this.effect_GMajor.Checked;
+                    generator.effect24 = this.effect_Dance.Checked;
+                    generator.effect25 = this.effect_Squidward.Checked;
                     generator.pluginCount = pluginCount;
                     generator.plugins = enabledPlugins;
                     generator.insertTransitionClips = InsertTransitions.Checked;
@@ -886,17 +935,14 @@ namespace YTPPlusPlus
                     generator.intro = this.InsertIntro.Checked;
                     generator.outro = this.InsertOutro.Checked;
                     generator.pluginTest = pluginTest.Checked;
-                    Console.WriteLine("poop5");
                     foreach (string sourcem in sources)
                     {
                         generator.addSource("\"" + sourcem + "\"");
                     }
-                    Console.WriteLine("poop6");
                     int maxclips = Convert.ToInt32(Clips.Value, new CultureInfo("en-US"));
                     generator.setMaxClips(Convert.ToInt32(Clips.Value, new CultureInfo("en-US")));
                     generator.setMaxDuration(Convert.ToDouble(MaxStreamDur.Value, new CultureInfo("en-US")));
                     generator.setMinDuration(Convert.ToDouble(MinStreamDur.Value, new CultureInfo("en-US")));
-                    Console.WriteLine("poop7");
 
                     double timeStarted = nanoTime();
                     double elapsedTime = nanoTime() - timeStarted;
@@ -906,7 +952,6 @@ namespace YTPPlusPlus
                         taskbarInstance.SetProgressState(Microsoft.WindowsAPICodePack.Taskbar.TaskbarProgressBarState.Normal);
                     }
                     globalGen = generator.go(new ProgressChangedEventHandler(progress), new RunWorkerCompletedEventHandler(complete));
-                    Console.WriteLine("poop8");
                 }
                 catch (Exception ex)
                 {
@@ -1089,7 +1134,6 @@ namespace YTPPlusPlus
         {
             theme_light.Checked = false;
             theme_dark.Checked = true;
-            theme_custom.Checked = false;
             Properties.Settings.Default.Theme = "Dark";
             switchTheme(Color.FromName("ControlDarkDark"), Color.FromName("ControlDark"), Color.FromName("Control"),Color.FromName("ControlText"));
         }
@@ -1098,7 +1142,6 @@ namespace YTPPlusPlus
         {
             theme_light.Checked = true;
             theme_dark.Checked = false;
-            theme_custom.Checked = false;
             Properties.Settings.Default.Theme = "Light";
             switchTheme(Color.FromName("ControlLightLight"), Color.FromName("ControlLight"), Color.FromName("Control"), Color.FromName("ControlText"));
         }

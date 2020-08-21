@@ -1063,10 +1063,22 @@ namespace YTPPlusPlus
             Properties.Settings.Default.effect_Reverse = effect_Reverse.Checked;
         }
 
-        private void effect_HighPitch_Click(object sender, EventArgs e)
+        private void effect_ForwardReverse_Click(object sender, EventArgs e)
         {
-            effect_HighPitch.Checked = !effect_HighPitch.Checked;
-            Properties.Settings.Default.effect_HighPitch = effect_HighPitch.Checked;
+            effect_ForwardReverse.Checked = !effect_ForwardReverse.Checked;
+            Properties.Settings.Default.effect_ForwardReverse = effect_ForwardReverse.Checked;
+        }
+
+        private void effect_ReverseForward_Click(object sender, EventArgs e)
+        {
+            effect_ReverseForward.Checked = !effect_ReverseForward.Checked;
+            Properties.Settings.Default.effect_ReverseForward = effect_ReverseForward.Checked;
+        }
+
+        private void effect_SpeedUpHighPitch_Click(object sender, EventArgs e)
+        {
+            effect_SpeedUpHighPitch.Checked = !effect_SpeedUpHighPitch.Checked;
+            Properties.Settings.Default.effect_SpeedUpHighPitch = effect_SpeedUpHighPitch.Checked;
         }
 
         private void effect_SpeedUp_Click(object sender, EventArgs e)
@@ -1075,16 +1087,76 @@ namespace YTPPlusPlus
             Properties.Settings.Default.effect_SpeedUp = effect_SpeedUp.Checked;
         }
 
-        private void effect_LowPitch_Click(object sender, EventArgs e)
+        private void effect_HighPitch_Click(object sender, EventArgs e)
         {
-            effect_LowPitch.Checked = !effect_LowPitch.Checked;
-            Properties.Settings.Default.effect_LowPitch = effect_LowPitch.Checked;
+            effect_HighPitch.Checked = !effect_HighPitch.Checked;
+            Properties.Settings.Default.effect_HighPitch = effect_HighPitch.Checked;
+        }
+
+        private void effect_SlowDownLowPitch_Click(object sender, EventArgs e)
+        {
+            effect_SlowDownLowPitch.Checked = !effect_SlowDownLowPitch.Checked;
+            Properties.Settings.Default.effect_SlowDownLowPitch = effect_SlowDownLowPitch.Checked;
         }
 
         private void effect_SlowDown_Click(object sender, EventArgs e)
         {
             effect_SlowDown.Checked = !effect_SlowDown.Checked;
             Properties.Settings.Default.effect_SlowDown = effect_SlowDown.Checked;
+        }
+
+        private void effect_LowPitch_Click(object sender, EventArgs e)
+        {
+            effect_LowPitch.Checked = !effect_LowPitch.Checked;
+            Properties.Settings.Default.effect_LowPitch = effect_LowPitch.Checked;
+        }
+
+        private void effect_Pixelate_Click(object sender, EventArgs e)
+        {
+            effect_Pixelate.Checked = !effect_Pixelate.Checked;
+            Properties.Settings.Default.effect_Pixelate = effect_Pixelate.Checked;
+        }
+
+        private void effect_BadQuality_Click(object sender, EventArgs e)
+        {
+            effect_BadQuality.Checked = !effect_BadQuality.Checked;
+            Properties.Settings.Default.effect_BadQuality = effect_BadQuality.Checked;
+        }
+
+        private void effect_Emboss_Click(object sender, EventArgs e)
+        {
+            effect_Emboss.Checked = !effect_Emboss.Checked;
+            Properties.Settings.Default.effect_Emboss = effect_Emboss.Checked;
+        }
+
+        private void effect_SymmetryHorizontal1_Click(object sender, EventArgs e)
+        {
+            effect_SymmetryHorizontal1.Checked = !effect_SymmetryHorizontal1.Checked;
+            Properties.Settings.Default.effect_SymmetryHorizontal1 = effect_SymmetryHorizontal1.Checked;
+        }
+
+        private void effect_SymmetryHorizontal2_Click(object sender, EventArgs e)
+        {
+            effect_SymmetryHorizontal2.Checked = !effect_SymmetryHorizontal2.Checked;
+            Properties.Settings.Default.effect_SymmetryHorizontal2 = effect_SymmetryHorizontal2.Checked;
+        }
+
+        private void effect_SymmetryVertical1_Click(object sender, EventArgs e)
+        {
+            effect_SymmetryVertical1.Checked = !effect_SymmetryVertical1.Checked;
+            Properties.Settings.Default.effect_SymmetryVertical1 = effect_SymmetryVertical1.Checked;
+        }
+
+        private void effect_SymmetryVertical2_Click(object sender, EventArgs e)
+        {
+            effect_SymmetryVertical2.Checked = !effect_SymmetryVertical2.Checked;
+            Properties.Settings.Default.effect_SymmetryVertical2 = effect_SymmetryVertical2.Checked;
+        }
+
+        private void effect_GMajor_Click(object sender, EventArgs e)
+        {
+            effect_GMajor.Checked = !effect_GMajor.Checked;
+            Properties.Settings.Default.effect_GMajor = effect_GMajor.Checked;
         }
 
         private void effect_Dance_Click(object sender, EventArgs e)
@@ -1122,6 +1194,24 @@ namespace YTPPlusPlus
             Properties.Settings.Default.effect_Vibrato = effect_Vibrato.Checked;
         }
 
+        private void effect_Tremolo_Click(object sender, EventArgs e)
+        {
+            effect_Tremolo.Checked = !effect_Tremolo.Checked;
+            Properties.Settings.Default.effect_Tremolo = effect_Tremolo.Checked;
+        }
+
+        private void effect_Earrape_Click(object sender, EventArgs e)
+        {
+            effect_Earrape.Checked = !effect_Earrape.Checked;
+            Properties.Settings.Default.effect_Earrape = effect_Earrape.Checked;
+        }
+
+        private void accel_Click(object sender, EventArgs e)
+        {
+            accel.Checked = !accel.Checked;
+            Properties.Settings.Default.Accel = Accel.Checked;
+        }
+
         private void pluginTest_Click(object sender, EventArgs e)
         {
             pluginTest.Checked = !pluginTest.Checked;
@@ -1131,6 +1221,7 @@ namespace YTPPlusPlus
                 alert("Enabling plugin testing will cause the effect switch to only select plugins and no other effects.");
             }
         }
+	
         private void theme_dark_Click(object sender, EventArgs e)
         {
             theme_light.Checked = false;

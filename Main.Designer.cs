@@ -779,7 +779,7 @@ namespace YTPPlusPlus
             // 
             // reverse
             // 
-            this.reverse.Index = 1;
+            this.reverse.Index = 0;
             this.reverse.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.effect_Reverse,
             this.effect_ForwardReverse,

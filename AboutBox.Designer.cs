@@ -1,4 +1,4 @@
-﻿namespace YTPPlusPlus
+namespace YTPPlusPlus
 {
     partial class AboutBox
     {
@@ -122,7 +122,7 @@
             this.labelCompanyName.Name = "labelCompanyName";
             this.labelCompanyName.Size = new System.Drawing.Size(271, 17);
             this.labelCompanyName.TabIndex = 22;
-            this.labelCompanyName.Text = "Created by TeamPopplio";
+            this.labelCompanyName.Text = "Created by TeamPopplio, fixed and enhanced by Devan Wolf";
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxDescription

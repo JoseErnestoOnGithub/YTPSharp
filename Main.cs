@@ -109,6 +109,7 @@ namespace YTPPlusPlus
             this.effect_GMajor.Checked = effect23Def;
             this.effect_Dance.Checked = effect24Def;
             this.effect_Squidward.Checked = effect25Def;
+            this.accel.Checked = accelDef;
             this.pluginTest.Checked = pluginTestDef;
             this.InsertIntro.Checked = introBoolDef;
             this.InsertOutro.Checked = outroBoolDef;
@@ -188,7 +189,7 @@ namespace YTPPlusPlus
             this.effect_GMajor.Checked = Properties.Settings.Default.effect_GMajor;
             this.effect_Dance.Checked = Properties.Settings.Default.effect_Dance;
             this.effect_Squidward.Checked = Properties.Settings.Default.effect_Squidward;
-            this.accelDef = Properties.Settings.Default.AccelEnabled;
+            this.accel.Checked = Properties.Settings.Default.AccelEnabled;
             this.pluginTest.Checked = Properties.Settings.Default.PluginTest;
             this.InsertIntro.Checked = Properties.Settings.Default.InsertIntro;
             this.InsertOutro.Checked = Properties.Settings.Default.InsertOutro;
@@ -868,8 +869,8 @@ namespace YTPPlusPlus
                     generator.toolBox.SOURCES = this.TransitionDir.Text;
                     generator.toolBox.intro = this.Intro.Text;
                     generator.toolBox.outro = this.Outro.Text;
-		    generator.toolBox.accelEnabled = this.EnableAccel.Checked;
-                    if (generator.toolBox.accelEnabled == true)
+		    generator.toolBox.accel = this.accel.Checked;
+                    if (generator.toolBox.accel == true)
                     {
                         ManagementObjectSearcher objvide = new ManagementObjectSearcher("select * from Win32_VideoController");
                         foreach (ManagementObject obj in objvide.Get())

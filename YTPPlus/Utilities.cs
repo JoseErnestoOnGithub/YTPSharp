@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Threading;
@@ -26,6 +26,9 @@ namespace YTPPlus
         public string intro = "";
         public string outro = "";
 
+        public string ACCEL = "";
+        public bool accelEnabled = false;
+
         /**
          * Return the length of a video (in seconds)
          *
@@ -40,11 +43,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = FFPROBE;
-                startInfo.Arguments = "-v error"
-                        + " -sexagesimal"
-                        + " -show_entries format=duration"
-                        + " -of default=noprint_wrappers=1:nokey=1"
-                        + " \"" + video + "\"";
+                startInfo.Arguments = "-v error -sexagesimal -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -81,10 +80,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = FFPROBE;
-                startInfo.Arguments = "-i \"" + file
-                        + "\" -show_entries format=duration"
-                        + " -v quiet"
-                        + " -of csv=\"p=0\"";
+                startInfo.Arguments = "-i \"" + file + "\" -show_entries format=duration -v quiet -of csv=\"p=0\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -125,14 +121,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = FFMPEG;
-                startInfo.Arguments = "-i \"" + video
-                        + "\" -ss " + startTime.ToString("0.#########################", new CultureInfo("en-US"))
-                        + " -to " + endTime.ToString("0.#########################", new CultureInfo("en-US"))
-                        + " -ac 1"
-                        + " -ar 44100"
-                        + " -vf scale=" + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + ",setsar=1:1,fps=fps=30"
-                        + " -y"
-                        + " " + output + ".mp4";
+                startInfo.Arguments = "-i \"" + video + "\" -ss " + startTime.ToString("0.#########################", new CultureInfo("en-US")) + " -to " + endTime.ToString("0.#########################", new CultureInfo("en-US")) + " -ar 44100 -vf scale=" + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + ",setsar=1:1,fps=fps=30" + ACCEL + " -y \"" + output + ".mp4\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -179,13 +168,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = FFMPEG;
-                startInfo.Arguments = "-i \"" + video
-                        + "\" -ar 44100"
-                        + " -ac 1"
-                        //+ " -filter:v fps=fps=30,setsar=1:1"
-                        + " -vf scale=" + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + ",setsar=1:1,fps=fps=30"
-                        + " -y"
-                        + " " + output + ".mp4";
+                startInfo.Arguments = "-i \"" + video + "\" -ar 44100 -vf scale=" + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + ",setsar=1:1,fps=fps=30" + ACCEL + " -y \"" + output + ".mp4\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -238,7 +221,7 @@ namespace YTPPlus
                 {
                     if (File.Exists(TEMP + "video" + i + ".mp4"))
                     {
-                        command1 += (" -i " + TEMP + "video" + i + ".mp4");
+                        command1 += (" -i \"" + TEMP + "video" + i + ".mp4\"");
                     }
                 }
                 command1 += (" -filter_complex \"");
@@ -256,8 +239,7 @@ namespace YTPPlus
                     command1 += ("[" + i + ":v:0][" + i + ":a:0]");
                 }
 
-                //realcount +=1;
-                command1 += ("concat=n=" + realcount + ":v=1:a=1[outv][outa]\" -map \"[outv]\" -map \"[outa]\" -y " + ou);
+                command1 += ("concat=n=" + realcount + ":v=1:a=1[outv][outa]\" -map [outv] -map [outa]" + ACCEL + " -y \"" + ou + "\"");
                 Console.WriteLine(command1);
 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();

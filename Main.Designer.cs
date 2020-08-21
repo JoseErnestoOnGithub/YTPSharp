@@ -73,60 +73,6 @@ namespace YTPPlusPlus
             this.themes = new System.Windows.Forms.MenuItem();
             this.theme_dark = new System.Windows.Forms.MenuItem();
             this.theme_light = new System.Windows.Forms.MenuItem();
-            this.theme_custom = new System.Windows.Forms.MenuItem();
-            this.theme_customedit = new System.Windows.Forms.MenuItem();
-            this.notimplemented = new System.Windows.Forms.MenuItem();
-            this.theme_foreground = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_video = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_video_dark = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_video_light = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_material = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_material_dark = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_material_light = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_streamsettings = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_streamsettings_dark = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_streamsettings_light = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_rendersettings = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_rendersettings_dark = new System.Windows.Forms.MenuItem();
-            this.theme_foreground_rendersettings_light = new System.Windows.Forms.MenuItem();
-            this.theme_background = new System.Windows.Forms.MenuItem();
-            this.theme_background_ytpplusplus = new System.Windows.Forms.MenuItem();
-            this.theme_background_ytpplusplus_dark = new System.Windows.Forms.MenuItem();
-            this.theme_background_ytpplusplus_light = new System.Windows.Forms.MenuItem();
-            this.theme_background_materiallist = new System.Windows.Forms.MenuItem();
-            this.theme_background_materiallist_dark = new System.Windows.Forms.MenuItem();
-            this.theme_background_materiallist_light = new System.Windows.Forms.MenuItem();
-            this.theme_labels = new System.Windows.Forms.MenuItem();
-            this.theme_labels_dark = new System.Windows.Forms.MenuItem();
-            this.theme_labels_light = new System.Windows.Forms.MenuItem();
-            this.theme_buttons = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_render = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_render_dark = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_render_light = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_beginning = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_beginning_dark = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_beginning_light = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_playpause = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_playpause_dark = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_playpause_light = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_end = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_end_dark = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_end_light = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_saveas = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_saveas_dark = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_saveas_light = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_addmp4 = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_addmp4_dark = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_addmp4_light = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_clear = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_clear_dark = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_clear_light = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_progress = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_progress_dark = new System.Windows.Forms.MenuItem();
-            this.theme_buttons_progress_light = new System.Windows.Forms.MenuItem();
-            this.theme_textboxes = new System.Windows.Forms.MenuItem();
-            this.theme_textboxes_dark = new System.Windows.Forms.MenuItem();
-            this.theme_textboxes_light = new System.Windows.Forms.MenuItem();
             this.m_tools = new System.Windows.Forms.MenuItem();
             this.pluginTest = new System.Windows.Forms.MenuItem();
             this.executables = new System.Windows.Forms.MenuItem();
@@ -142,13 +88,27 @@ namespace YTPPlusPlus
             this.m_printconfig = new System.Windows.Forms.MenuItem();
             this.m_effects = new System.Windows.Forms.MenuItem();
             this.videoeffects = new System.Windows.Forms.MenuItem();
+            this.reverse = new System.Windows.Forms.MenuItem();
             this.effect_Reverse = new System.Windows.Forms.MenuItem();
+            this.effect_ForwardReverse = new System.Windows.Forms.MenuItem();
+            this.effect_ReverseForward = new System.Windows.Forms.MenuItem();
             this.speedup = new System.Windows.Forms.MenuItem();
-            this.effect_HighPitch = new System.Windows.Forms.MenuItem();
+            this.effect_SpeedUpHighPitch = new System.Windows.Forms.MenuItem();
             this.effect_SpeedUp = new System.Windows.Forms.MenuItem();
+            this.effect_HighPitch = new System.Windows.Forms.MenuItem();
             this.slowdown = new System.Windows.Forms.MenuItem();
-            this.effect_LowPitch = new System.Windows.Forms.MenuItem();
+            this.effect_SlowDownLowPitch = new System.Windows.Forms.MenuItem();
             this.effect_SlowDown = new System.Windows.Forms.MenuItem();
+            this.effect_LowPitch = new System.Windows.Forms.MenuItem();
+            this.effect_Pixelate = new System.Windows.Forms.MenuItem();
+            this.effect_BadQuality = new System.Windows.Forms.MenuItem();
+            this.effect_Emboss = new System.Windows.Forms.MenuItem();
+            this.symmetry = new System.Windows.Forms.MenuItem();
+            this.effect_SymmetryHorizontal1 = new System.Windows.Forms.MenuItem();
+            this.effect_SymmetryHorizontal2 = new System.Windows.Forms.MenuItem();
+            this.effect_SymmetryVertical1 = new System.Windows.Forms.MenuItem();
+            this.effect_SymmetryVertical2 = new System.Windows.Forms.MenuItem();
+            this.effect_GMajor = new System.Windows.Forms.MenuItem();
             this.effect_Dance = new System.Windows.Forms.MenuItem();
             this.effect_Squidward = new System.Windows.Forms.MenuItem();
             this.audioeffects = new System.Windows.Forms.MenuItem();
@@ -157,6 +117,8 @@ namespace YTPPlusPlus
             this.effect_RandomSoundMute = new System.Windows.Forms.MenuItem();
             this.effect_Chorus = new System.Windows.Forms.MenuItem();
             this.effect_Vibrato = new System.Windows.Forms.MenuItem();
+            this.effect_Tremolo = new System.Windows.Forms.MenuItem();
+            this.effect_Earrape = new System.Windows.Forms.MenuItem();
             this.plugins = new System.Windows.Forms.MenuItem();
             this.noPlugins = new System.Windows.Forms.MenuItem();
             this.m_help = new System.Windows.Forms.MenuItem();
@@ -281,7 +243,7 @@ namespace YTPPlusPlus
             this.Settings.Controls.Add(this.MinSteamLabel);
             this.Settings.Controls.Add(this.TransitionDir);
             this.Settings.Controls.Add(this.InsertTransitions);
-            this.Settings.Location = new System.Drawing.Point(13, 306);
+            this.Settings.Location = new System.Drawing.Point(12, 306);
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(320, 145);
             this.Settings.TabIndex = 7;
@@ -420,7 +382,7 @@ namespace YTPPlusPlus
             this.RenderSettings.Controls.Add(this.Outro);
             this.RenderSettings.Controls.Add(this.InsertOutro);
             this.RenderSettings.Controls.Add(this.RenderSettingsLabel);
-            this.RenderSettings.Location = new System.Drawing.Point(339, 305);
+            this.RenderSettings.Location = new System.Drawing.Point(339, 306);
             this.RenderSettings.Name = "RenderSettings";
             this.RenderSettings.Size = new System.Drawing.Size(210, 145);
             this.RenderSettings.TabIndex = 8;
@@ -673,9 +635,7 @@ namespace YTPPlusPlus
             this.themes.Index = 1;
             this.themes.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.theme_dark,
-            this.theme_light,
-            this.theme_custom,
-            this.theme_customedit});
+            this.theme_light});
             this.themes.Text = "Color scheme";
             // 
             // theme_dark
@@ -693,403 +653,11 @@ namespace YTPPlusPlus
             this.theme_light.Text = "Light";
             this.theme_light.Click += new System.EventHandler(this.theme_light_Click);
             // 
-            // theme_custom
-            // 
-            this.theme_custom.Enabled = false;
-            this.theme_custom.Index = 2;
-            this.theme_custom.Text = "Custom";
-            // 
-            // theme_customedit
-            // 
-            this.theme_customedit.Enabled = false;
-            this.theme_customedit.Index = 3;
-            this.theme_customedit.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.notimplemented,
-            this.theme_foreground,
-            this.theme_background,
-            this.theme_labels,
-            this.theme_buttons,
-            this.theme_textboxes});
-            this.theme_customedit.RadioCheck = true;
-            this.theme_customedit.Text = "Edit custom";
-            // 
-            // notimplemented
-            // 
-            this.notimplemented.Index = 0;
-            this.notimplemented.Text = "NOT IMPLEMENTED";
-            // 
-            // theme_foreground
-            // 
-            this.theme_foreground.Index = 1;
-            this.theme_foreground.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_foreground_video,
-            this.theme_foreground_material,
-            this.theme_foreground_streamsettings,
-            this.theme_foreground_rendersettings});
-            this.theme_foreground.Text = "Foreground";
-            // 
-            // theme_foreground_video
-            // 
-            this.theme_foreground_video.Index = 0;
-            this.theme_foreground_video.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_foreground_video_dark,
-            this.theme_foreground_video_light});
-            this.theme_foreground_video.Text = "Video";
-            // 
-            // theme_foreground_video_dark
-            // 
-            this.theme_foreground_video_dark.Checked = true;
-            this.theme_foreground_video_dark.Index = 0;
-            this.theme_foreground_video_dark.RadioCheck = true;
-            this.theme_foreground_video_dark.Text = "Dark";
-            // 
-            // theme_foreground_video_light
-            // 
-            this.theme_foreground_video_light.Index = 1;
-            this.theme_foreground_video_light.RadioCheck = true;
-            this.theme_foreground_video_light.Text = "Light";
-            // 
-            // theme_foreground_material
-            // 
-            this.theme_foreground_material.Index = 1;
-            this.theme_foreground_material.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_foreground_material_dark,
-            this.theme_foreground_material_light});
-            this.theme_foreground_material.Text = "Material";
-            // 
-            // theme_foreground_material_dark
-            // 
-            this.theme_foreground_material_dark.Checked = true;
-            this.theme_foreground_material_dark.Index = 0;
-            this.theme_foreground_material_dark.RadioCheck = true;
-            this.theme_foreground_material_dark.Text = "Dark";
-            // 
-            // theme_foreground_material_light
-            // 
-            this.theme_foreground_material_light.Index = 1;
-            this.theme_foreground_material_light.RadioCheck = true;
-            this.theme_foreground_material_light.Text = "Light";
-            // 
-            // theme_foreground_streamsettings
-            // 
-            this.theme_foreground_streamsettings.Index = 2;
-            this.theme_foreground_streamsettings.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_foreground_streamsettings_dark,
-            this.theme_foreground_streamsettings_light});
-            this.theme_foreground_streamsettings.Text = "Stream Settings";
-            // 
-            // theme_foreground_streamsettings_dark
-            // 
-            this.theme_foreground_streamsettings_dark.Checked = true;
-            this.theme_foreground_streamsettings_dark.Index = 0;
-            this.theme_foreground_streamsettings_dark.RadioCheck = true;
-            this.theme_foreground_streamsettings_dark.Text = "Dark";
-            // 
-            // theme_foreground_streamsettings_light
-            // 
-            this.theme_foreground_streamsettings_light.Index = 1;
-            this.theme_foreground_streamsettings_light.RadioCheck = true;
-            this.theme_foreground_streamsettings_light.Text = "Light";
-            // 
-            // theme_foreground_rendersettings
-            // 
-            this.theme_foreground_rendersettings.Index = 3;
-            this.theme_foreground_rendersettings.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_foreground_rendersettings_dark,
-            this.theme_foreground_rendersettings_light});
-            this.theme_foreground_rendersettings.Text = "Render Settings";
-            // 
-            // theme_foreground_rendersettings_dark
-            // 
-            this.theme_foreground_rendersettings_dark.Checked = true;
-            this.theme_foreground_rendersettings_dark.Index = 0;
-            this.theme_foreground_rendersettings_dark.RadioCheck = true;
-            this.theme_foreground_rendersettings_dark.Text = "Dark";
-            // 
-            // theme_foreground_rendersettings_light
-            // 
-            this.theme_foreground_rendersettings_light.Index = 1;
-            this.theme_foreground_rendersettings_light.RadioCheck = true;
-            this.theme_foreground_rendersettings_light.Text = "Light";
-            // 
-            // theme_background
-            // 
-            this.theme_background.Index = 2;
-            this.theme_background.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_background_ytpplusplus,
-            this.theme_background_materiallist});
-            this.theme_background.Text = "Background";
-            // 
-            // theme_background_ytpplusplus
-            // 
-            this.theme_background_ytpplusplus.Index = 0;
-            this.theme_background_ytpplusplus.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_background_ytpplusplus_dark,
-            this.theme_background_ytpplusplus_light});
-            this.theme_background_ytpplusplus.Text = "YTP++";
-            // 
-            // theme_background_ytpplusplus_dark
-            // 
-            this.theme_background_ytpplusplus_dark.Checked = true;
-            this.theme_background_ytpplusplus_dark.Index = 0;
-            this.theme_background_ytpplusplus_dark.RadioCheck = true;
-            this.theme_background_ytpplusplus_dark.Text = "Dark";
-            // 
-            // theme_background_ytpplusplus_light
-            // 
-            this.theme_background_ytpplusplus_light.Index = 1;
-            this.theme_background_ytpplusplus_light.RadioCheck = true;
-            this.theme_background_ytpplusplus_light.Text = "Light";
-            // 
-            // theme_background_materiallist
-            // 
-            this.theme_background_materiallist.Index = 1;
-            this.theme_background_materiallist.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_background_materiallist_dark,
-            this.theme_background_materiallist_light});
-            this.theme_background_materiallist.Text = "Material List";
-            // 
-            // theme_background_materiallist_dark
-            // 
-            this.theme_background_materiallist_dark.Index = 0;
-            this.theme_background_materiallist_dark.RadioCheck = true;
-            this.theme_background_materiallist_dark.Text = "Dark";
-            // 
-            // theme_background_materiallist_light
-            // 
-            this.theme_background_materiallist_light.Checked = true;
-            this.theme_background_materiallist_light.Index = 1;
-            this.theme_background_materiallist_light.RadioCheck = true;
-            this.theme_background_materiallist_light.Text = "Light";
-            // 
-            // theme_labels
-            // 
-            this.theme_labels.Index = 3;
-            this.theme_labels.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_labels_dark,
-            this.theme_labels_light});
-            this.theme_labels.Text = "Labels";
-            // 
-            // theme_labels_dark
-            // 
-            this.theme_labels_dark.Checked = true;
-            this.theme_labels_dark.Index = 0;
-            this.theme_labels_dark.RadioCheck = true;
-            this.theme_labels_dark.Text = "Dark";
-            // 
-            // theme_labels_light
-            // 
-            this.theme_labels_light.Index = 1;
-            this.theme_labels_light.RadioCheck = true;
-            this.theme_labels_light.Text = "Light";
-            // 
-            // theme_buttons
-            // 
-            this.theme_buttons.Index = 4;
-            this.theme_buttons.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_buttons_render,
-            this.theme_buttons_beginning,
-            this.theme_buttons_playpause,
-            this.theme_buttons_end,
-            this.theme_buttons_saveas,
-            this.theme_buttons_addmp4,
-            this.theme_buttons_clear,
-            this.theme_buttons_progress});
-            this.theme_buttons.Text = "Buttons";
-            // 
-            // theme_buttons_render
-            // 
-            this.theme_buttons_render.Index = 0;
-            this.theme_buttons_render.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_buttons_render_dark,
-            this.theme_buttons_render_light});
-            this.theme_buttons_render.Text = "Render";
-            // 
-            // theme_buttons_render_dark
-            // 
-            this.theme_buttons_render_dark.Index = 0;
-            this.theme_buttons_render_dark.RadioCheck = true;
-            this.theme_buttons_render_dark.Text = "Dark";
-            // 
-            // theme_buttons_render_light
-            // 
-            this.theme_buttons_render_light.Checked = true;
-            this.theme_buttons_render_light.Index = 1;
-            this.theme_buttons_render_light.RadioCheck = true;
-            this.theme_buttons_render_light.Text = "Light";
-            // 
-            // theme_buttons_beginning
-            // 
-            this.theme_buttons_beginning.Index = 1;
-            this.theme_buttons_beginning.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_buttons_beginning_dark,
-            this.theme_buttons_beginning_light});
-            this.theme_buttons_beginning.Text = "Playback Beginning";
-            // 
-            // theme_buttons_beginning_dark
-            // 
-            this.theme_buttons_beginning_dark.Index = 0;
-            this.theme_buttons_beginning_dark.RadioCheck = true;
-            this.theme_buttons_beginning_dark.Text = "Dark";
-            // 
-            // theme_buttons_beginning_light
-            // 
-            this.theme_buttons_beginning_light.Checked = true;
-            this.theme_buttons_beginning_light.Index = 1;
-            this.theme_buttons_beginning_light.RadioCheck = true;
-            this.theme_buttons_beginning_light.Text = "Light";
-            // 
-            // theme_buttons_playpause
-            // 
-            this.theme_buttons_playpause.Index = 2;
-            this.theme_buttons_playpause.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_buttons_playpause_dark,
-            this.theme_buttons_playpause_light});
-            this.theme_buttons_playpause.Text = "Play/Pause";
-            // 
-            // theme_buttons_playpause_dark
-            // 
-            this.theme_buttons_playpause_dark.Index = 0;
-            this.theme_buttons_playpause_dark.RadioCheck = true;
-            this.theme_buttons_playpause_dark.Text = "Dark";
-            // 
-            // theme_buttons_playpause_light
-            // 
-            this.theme_buttons_playpause_light.Checked = true;
-            this.theme_buttons_playpause_light.Index = 1;
-            this.theme_buttons_playpause_light.RadioCheck = true;
-            this.theme_buttons_playpause_light.Text = "Light";
-            // 
-            // theme_buttons_end
-            // 
-            this.theme_buttons_end.Index = 3;
-            this.theme_buttons_end.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_buttons_end_dark,
-            this.theme_buttons_end_light});
-            this.theme_buttons_end.Text = "Playback End";
-            // 
-            // theme_buttons_end_dark
-            // 
-            this.theme_buttons_end_dark.Index = 0;
-            this.theme_buttons_end_dark.RadioCheck = true;
-            this.theme_buttons_end_dark.Text = "Dark";
-            // 
-            // theme_buttons_end_light
-            // 
-            this.theme_buttons_end_light.Checked = true;
-            this.theme_buttons_end_light.Index = 1;
-            this.theme_buttons_end_light.RadioCheck = true;
-            this.theme_buttons_end_light.Text = "Light";
-            // 
-            // theme_buttons_saveas
-            // 
-            this.theme_buttons_saveas.Index = 4;
-            this.theme_buttons_saveas.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_buttons_saveas_dark,
-            this.theme_buttons_saveas_light});
-            this.theme_buttons_saveas.Text = "Save as...";
-            // 
-            // theme_buttons_saveas_dark
-            // 
-            this.theme_buttons_saveas_dark.Index = 0;
-            this.theme_buttons_saveas_dark.RadioCheck = true;
-            this.theme_buttons_saveas_dark.Text = "Dark";
-            // 
-            // theme_buttons_saveas_light
-            // 
-            this.theme_buttons_saveas_light.Checked = true;
-            this.theme_buttons_saveas_light.Index = 1;
-            this.theme_buttons_saveas_light.RadioCheck = true;
-            this.theme_buttons_saveas_light.Text = "Light";
-            // 
-            // theme_buttons_addmp4
-            // 
-            this.theme_buttons_addmp4.Index = 5;
-            this.theme_buttons_addmp4.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_buttons_addmp4_dark,
-            this.theme_buttons_addmp4_light});
-            this.theme_buttons_addmp4.Text = "Add (*.mp4)";
-            // 
-            // theme_buttons_addmp4_dark
-            // 
-            this.theme_buttons_addmp4_dark.Index = 0;
-            this.theme_buttons_addmp4_dark.RadioCheck = true;
-            this.theme_buttons_addmp4_dark.Text = "Dark";
-            // 
-            // theme_buttons_addmp4_light
-            // 
-            this.theme_buttons_addmp4_light.Checked = true;
-            this.theme_buttons_addmp4_light.Index = 1;
-            this.theme_buttons_addmp4_light.RadioCheck = true;
-            this.theme_buttons_addmp4_light.Text = "Light";
-            // 
-            // theme_buttons_clear
-            // 
-            this.theme_buttons_clear.Index = 6;
-            this.theme_buttons_clear.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_buttons_clear_dark,
-            this.theme_buttons_clear_light});
-            this.theme_buttons_clear.Text = "Clear";
-            // 
-            // theme_buttons_clear_dark
-            // 
-            this.theme_buttons_clear_dark.Index = 0;
-            this.theme_buttons_clear_dark.RadioCheck = true;
-            this.theme_buttons_clear_dark.Text = "Dark";
-            // 
-            // theme_buttons_clear_light
-            // 
-            this.theme_buttons_clear_light.Checked = true;
-            this.theme_buttons_clear_light.Index = 1;
-            this.theme_buttons_clear_light.RadioCheck = true;
-            this.theme_buttons_clear_light.Text = "Light";
-            // 
-            // theme_buttons_progress
-            // 
-            this.theme_buttons_progress.Index = 7;
-            this.theme_buttons_progress.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_buttons_progress_dark,
-            this.theme_buttons_progress_light});
-            this.theme_buttons_progress.Text = "Progress Bar";
-            // 
-            // theme_buttons_progress_dark
-            // 
-            this.theme_buttons_progress_dark.Index = 0;
-            this.theme_buttons_progress_dark.RadioCheck = true;
-            this.theme_buttons_progress_dark.Text = "Dark";
-            // 
-            // theme_buttons_progress_light
-            // 
-            this.theme_buttons_progress_light.Checked = true;
-            this.theme_buttons_progress_light.Index = 1;
-            this.theme_buttons_progress_light.RadioCheck = true;
-            this.theme_buttons_progress_light.Text = "Light";
-            // 
-            // theme_textboxes
-            // 
-            this.theme_textboxes.Index = 5;
-            this.theme_textboxes.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.theme_textboxes_dark,
-            this.theme_textboxes_light});
-            this.theme_textboxes.Text = "Text Boxes";
-            // 
-            // theme_textboxes_dark
-            // 
-            this.theme_textboxes_dark.Index = 0;
-            this.theme_textboxes_dark.RadioCheck = true;
-            this.theme_textboxes_dark.Text = "Dark";
-            // 
-            // theme_textboxes_light
-            // 
-            this.theme_textboxes_light.Checked = true;
-            this.theme_textboxes_light.Index = 1;
-            this.theme_textboxes_light.RadioCheck = true;
-            this.theme_textboxes_light.Text = "Light";
-            // 
             // m_tools
             // 
             this.m_tools.Index = 3;
             this.m_tools.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.accel,
             this.pluginTest,
             this.executables,
             this.folders,
@@ -1097,6 +665,12 @@ namespace YTPPlusPlus
             this.m_printconfig});
             this.m_tools.ShowShortcut = false;
             this.m_tools.Text = "Tools";
+            // 
+            // accel
+            // 
+            this.accel.Index = 0;
+            this.accel.Text = "Enable GPU acceleration";
+            this.accel.Click += new System.EventHandler(this.accel_Click);
             // 
             // pluginTest
             // 
@@ -1191,34 +765,63 @@ namespace YTPPlusPlus
             // 
             this.videoeffects.Index = 0;
             this.videoeffects.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.effect_Reverse,
+            this.reverse,
             this.speedup,
             this.slowdown,
+            this.effect_Pixelate,
+            this.effect_BadQuality,
+            this.effect_Emboss,
+            this.symmetry,
+            this.effect_GMajor,
             this.effect_Dance,
             this.effect_Squidward});
             this.videoeffects.Text = "Video Effects";
+            // 
+            // reverse
+            // 
+            this.reverse.Index = 1;
+            this.reverse.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.effect_Reverse,
+            this.effect_ForwardReverse,
+            this.effect_ReverseForward});
+            this.reverse.Text = "Reverse Clip";
             // 
             // effect_Reverse
             // 
             this.effect_Reverse.Checked = true;
             this.effect_Reverse.Index = 0;
-            this.effect_Reverse.Text = "Reverse Clip";
+            this.effect_Reverse.Text = "Normal";
             this.effect_Reverse.Click += new System.EventHandler(this.effect_Reverse_Click);
+            // 
+            // effect_ForwardReverse
+            // 
+            this.effect_ForwardReverse.Checked = true;
+            this.effect_ForwardReverse.Index = 1;
+            this.effect_ForwardReverse.Text = "Forward-Reverse";
+            this.effect_ForwardReverse.Click += new System.EventHandler(this.effect_ForwardReverse_Click);
+            // 
+            // effect_ReverseForward
+            // 
+            this.effect_ReverseForward.Checked = true;
+            this.effect_ReverseForward.Index = 2;
+            this.effect_ReverseForward.Text = "Reverse-Forward";
+            this.effect_ReverseForward.Click += new System.EventHandler(this.effect_ReverseForward_Click);
             // 
             // speedup
             // 
             this.speedup.Index = 1;
             this.speedup.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.effect_HighPitch,
-            this.effect_SpeedUp});
+            this.effect_SpeedUpHighPitch,
+            this.effect_SpeedUp,
+            this.effect_HighPitch});
             this.speedup.Text = "Speed Up Clip";
             // 
-            // effect_HighPitch
+            // effect_SpeedUpHighPitch
             // 
-            this.effect_HighPitch.Checked = true;
-            this.effect_HighPitch.Index = 0;
-            this.effect_HighPitch.Text = "Pitched";
-            this.effect_HighPitch.Click += new System.EventHandler(this.effect_HighPitch_Click);
+            this.effect_SpeedUpHighPitch.Checked = true;
+            this.effect_SpeedUpHighPitch.Index = 0;
+            this.effect_SpeedUpHighPitch.Text = "Pitched";
+            this.effect_SpeedUpHighPitch.Click += new System.EventHandler(this.effect_SpeedUpHighPitch_Click);
             // 
             // effect_SpeedUp
             // 
@@ -1227,20 +830,28 @@ namespace YTPPlusPlus
             this.effect_SpeedUp.Text = "No Pitch";
             this.effect_SpeedUp.Click += new System.EventHandler(this.effect_SpeedUp_Click);
             // 
+            // effect_SpeedUpHighPitch
+            // 
+            this.effect_HighPitch.Checked = true;
+            this.effect_HighPitch.Index = 2;
+            this.effect_HighPitch.Text = "Pitch Only";
+            this.effect_HighPitch.Click += new System.EventHandler(this.effect_HighPitch_Click);
+            // 
             // slowdown
             // 
             this.slowdown.Index = 2;
             this.slowdown.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.effect_LowPitch,
-            this.effect_SlowDown});
+            this.effect_SlowDownLowPitch,
+            this.effect_SlowDown,
+            this.effect_LowPitch});
             this.slowdown.Text = "Slow Down Clip";
             // 
-            // effect_LowPitch
+            // effect_SlowDownLowPitch
             // 
-            this.effect_LowPitch.Checked = true;
-            this.effect_LowPitch.Index = 0;
-            this.effect_LowPitch.Text = "Pitched";
-            this.effect_LowPitch.Click += new System.EventHandler(this.effect_LowPitch_Click);
+            this.effect_SlowDownLowPitch.Checked = true;
+            this.effect_SlowDownLowPitch.Index = 0;
+            this.effect_SlowDownLowPitch.Text = "Pitched";
+            this.effect_SlowDownLowPitch.Click += new System.EventHandler(this.effect_SlowDownLowPitch_Click);
             // 
             // effect_SlowDown
             // 
@@ -1249,17 +860,90 @@ namespace YTPPlusPlus
             this.effect_SlowDown.Text = "No Pitch";
             this.effect_SlowDown.Click += new System.EventHandler(this.effect_SlowDown_Click);
             // 
+            // effect_LowPitch
+            // 
+            this.effect_LowPitch.Checked = true;
+            this.effect_LowPitch.Index = 2;
+            this.effect_LowPitch.Text = "Pitch Only";
+            this.effect_LowPitch.Click += new System.EventHandler(this.effect_LowPitch_Click);
+            // 
+            // effect_Pixelate
+            // 
+            this.effect_Pixelate.Checked = true;
+            this.effect_Pixelate.Index = 3;
+            this.effect_Pixelate.Text = "Pixelate";
+            this.effect_Pixelate.Click += new System.EventHandler(this.effect_Pixelate_Click);
+            // 
+            // effect_BadQuality
+            // 
+            this.effect_BadQuality.Checked = true;
+            this.effect_BadQuality.Index = 4;
+            this.effect_BadQuality.Text = "Bad Quality Video";
+            this.effect_BadQuality.Click += new System.EventHandler(this.effect_BadQuality_Click);
+            // 
+            // effect_Emboss
+            // 
+            this.effect_Emboss.Checked = true;
+            this.effect_Emboss.Index = 5;
+            this.effect_Emboss.Text = "Emboss";
+            this.effect_Emboss.Click += new System.EventHandler(this.effect_Emboss_Click);
+            // 
+            // symmetry
+            // 
+            this.symmetry.Index = 6;
+            this.symmetry.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.effect_SymmetryHorizontal1,
+            this.effect_SymmetryHorizontal2,
+            this.effect_SymmetryVertical1,
+            this.effect_SymmetryVertical2});
+            this.symmetry.Text = "Mirror Symmetry";
+            // 
+            // effect_SymmetryHorizontal1
+            // 
+            this.effect_SymmetryHorizontal1.Checked = true;
+            this.effect_SymmetryHorizontal1.Index = 0;
+            this.effect_SymmetryHorizontal1.Text = "Horizontal 1";
+            this.effect_SymmetryHorizontal1.Click += new System.EventHandler(this.effect_SymmetryHorizontal1_Click);
+            // 
+            // effect_SymmetryHorizontal2
+            // 
+            this.effect_SymmetryHorizontal2.Checked = true;
+            this.effect_SymmetryHorizontal2.Index = 1;
+            this.effect_SymmetryHorizontal2.Text = "Horizontal 2";
+            this.effect_SymmetryHorizontal2.Click += new System.EventHandler(this.effect_SymmetryHorizontal2_Click);
+            // 
+            // effect_SymmetryVertical1
+            // 
+            this.effect_SymmetryVertical1.Checked = true;
+            this.effect_SymmetryVertical1.Index = 2;
+            this.effect_SymmetryVertical1.Text = "Vertical 1";
+            this.effect_SymmetryVertical1.Click += new System.EventHandler(this.effect_SymmetryVertical1_Click);
+            // 
+            // effect_SymmetryVertical2
+            // 
+            this.effect_SymmetryVertical2.Checked = true;
+            this.effect_SymmetryVertical2.Index = 3;
+            this.effect_SymmetryVertical2.Text = "Vertical 2";
+            this.effect_SymmetryVertical2.Click += new System.EventHandler(this.effect_SymmetryVertical2_Click);
+            // 
+            // effect_GMajor
+            // 
+            this.effect_GMajor.Checked = true;
+            this.effect_GMajor.Index = 7;
+            this.effect_GMajor.Text = "G Major";
+            this.effect_GMajor.Click += new System.EventHandler(this.effect_GMajor_Click);
+            // 
             // effect_Dance
             // 
             this.effect_Dance.Checked = true;
-            this.effect_Dance.Index = 3;
+            this.effect_Dance.Index = 8;
             this.effect_Dance.Text = "Dance";
             this.effect_Dance.Click += new System.EventHandler(this.effect_Dance_Click);
             // 
             // effect_Squidward
             // 
             this.effect_Squidward.Checked = true;
-            this.effect_Squidward.Index = 4;
+            this.effect_Squidward.Index = 9;
             this.effect_Squidward.Text = "Squidward";
             this.effect_Squidward.Click += new System.EventHandler(this.effect_Squidward_Click);
             // 
@@ -1269,7 +953,9 @@ namespace YTPPlusPlus
             this.audioeffects.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.randomsound,
             this.effect_Chorus,
-            this.effect_Vibrato});
+            this.effect_Vibrato,
+            this.effect_Tremolo,
+            this.effect_Earrape});
             this.audioeffects.Text = "Audio Effects";
             // 
             // randomsound
@@ -1307,6 +993,20 @@ namespace YTPPlusPlus
             this.effect_Vibrato.Index = 2;
             this.effect_Vibrato.Text = "Vibrato Audio";
             this.effect_Vibrato.Click += new System.EventHandler(this.effect_Vibrato_Click);
+            // 
+            // effect_Tremolo
+            // 
+            this.effect_Tremolo.Checked = true;
+            this.effect_Tremolo.Index = 3;
+            this.effect_Tremolo.Text = "Tremolo Audio";
+            this.effect_Tremolo.Click += new System.EventHandler(this.effect_Tremolo_Click);
+            // 
+            // effect_Earrape
+            // 
+            this.effect_Earrape.Checked = true;
+            this.effect_Earrape.Index = 4;
+            this.effect_Earrape.Text = "Earrape";
+            this.effect_Earrape.Click += new System.EventHandler(this.effect_Earrape_Click);
             // 
             // plugins
             // 
@@ -1540,59 +1240,5 @@ namespace YTPPlusPlus
         private System.Windows.Forms.MenuItem themes;
         private System.Windows.Forms.MenuItem theme_dark;
         private System.Windows.Forms.MenuItem theme_light;
-        private System.Windows.Forms.MenuItem theme_customedit;
-        private System.Windows.Forms.MenuItem theme_foreground;
-        private System.Windows.Forms.MenuItem theme_foreground_video;
-        private System.Windows.Forms.MenuItem theme_foreground_video_dark;
-        private System.Windows.Forms.MenuItem theme_foreground_video_light;
-        private System.Windows.Forms.MenuItem theme_foreground_material;
-        private System.Windows.Forms.MenuItem theme_foreground_streamsettings;
-        private System.Windows.Forms.MenuItem theme_foreground_material_dark;
-        private System.Windows.Forms.MenuItem theme_foreground_material_light;
-        private System.Windows.Forms.MenuItem theme_foreground_streamsettings_dark;
-        private System.Windows.Forms.MenuItem theme_foreground_streamsettings_light;
-        private System.Windows.Forms.MenuItem theme_foreground_rendersettings;
-        private System.Windows.Forms.MenuItem theme_foreground_rendersettings_dark;
-        private System.Windows.Forms.MenuItem theme_foreground_rendersettings_light;
-        private System.Windows.Forms.MenuItem theme_background;
-        private System.Windows.Forms.MenuItem theme_background_ytpplusplus;
-        private System.Windows.Forms.MenuItem theme_background_ytpplusplus_dark;
-        private System.Windows.Forms.MenuItem theme_background_ytpplusplus_light;
-        private System.Windows.Forms.MenuItem theme_background_materiallist;
-        private System.Windows.Forms.MenuItem theme_background_materiallist_dark;
-        private System.Windows.Forms.MenuItem theme_background_materiallist_light;
-        private System.Windows.Forms.MenuItem theme_labels;
-        private System.Windows.Forms.MenuItem theme_labels_dark;
-        private System.Windows.Forms.MenuItem theme_labels_light;
-        private System.Windows.Forms.MenuItem theme_buttons;
-        private System.Windows.Forms.MenuItem theme_buttons_beginning;
-        private System.Windows.Forms.MenuItem theme_buttons_beginning_dark;
-        private System.Windows.Forms.MenuItem theme_buttons_beginning_light;
-        private System.Windows.Forms.MenuItem theme_buttons_playpause;
-        private System.Windows.Forms.MenuItem theme_buttons_playpause_dark;
-        private System.Windows.Forms.MenuItem theme_buttons_playpause_light;
-        private System.Windows.Forms.MenuItem theme_buttons_end;
-        private System.Windows.Forms.MenuItem theme_buttons_end_dark;
-        private System.Windows.Forms.MenuItem theme_buttons_end_light;
-        private System.Windows.Forms.MenuItem theme_buttons_saveas;
-        private System.Windows.Forms.MenuItem theme_buttons_saveas_dark;
-        private System.Windows.Forms.MenuItem theme_buttons_saveas_light;
-        private System.Windows.Forms.MenuItem theme_buttons_addmp4;
-        private System.Windows.Forms.MenuItem theme_buttons_addmp4_dark;
-        private System.Windows.Forms.MenuItem theme_buttons_addmp4_light;
-        private System.Windows.Forms.MenuItem theme_buttons_clear;
-        private System.Windows.Forms.MenuItem theme_buttons_clear_dark;
-        private System.Windows.Forms.MenuItem theme_buttons_clear_light;
-        private System.Windows.Forms.MenuItem theme_buttons_progress;
-        private System.Windows.Forms.MenuItem theme_buttons_progress_dark;
-        private System.Windows.Forms.MenuItem theme_buttons_progress_light;
-        private System.Windows.Forms.MenuItem theme_buttons_render;
-        private System.Windows.Forms.MenuItem theme_buttons_render_dark;
-        private System.Windows.Forms.MenuItem theme_buttons_render_light;
-        private System.Windows.Forms.MenuItem theme_textboxes;
-        private System.Windows.Forms.MenuItem theme_textboxes_dark;
-        private System.Windows.Forms.MenuItem theme_textboxes_light;
-        private System.Windows.Forms.MenuItem notimplemented;
-        private System.Windows.Forms.MenuItem theme_custom;
     }
 }

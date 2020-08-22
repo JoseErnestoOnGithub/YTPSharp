@@ -19,8 +19,8 @@ namespace YTPPlusPlus
         Vlc.DotNet.Forms.VlcControl Player;
         bool renderComplete = true;
         //tool variables
-        string ffmpeg = "ffmpeg";
-        string ffprobe = "ffprobe";
+        string ffmpeg = "ffmpeg.exe";
+        string ffprobe = "ffprobe.exe";
         string magick = "magick";
         string temp = "temp\\";
         string sounds = "sounds\\";
@@ -64,8 +64,8 @@ namespace YTPPlusPlus
         decimal maxStreamDef = 0.4M;
         string introDef = "resources\\intro.mp4";
         string outroDef = "resources\\outro.mp4";
-        string ffmpegDef = "ffmpeg";
-        string ffprobeDef = "ffprobe";
+        string ffmpegDef = "ffmpeg.exe";
+        string ffprobeDef = "ffprobe.exe";
         string magickDef = "magick";
         string sourcesDef = "sources\\";
         string tempDef = "temp\\";

@@ -71,7 +71,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -i \"" + toolBox.SOUNDS + randomSound + "\" -filter_complex \"[1:a]volume=1,apad[A];[0:a][A]amerge[out]\" -ar 44100 -map 0:v -map [out]" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -i \"" + toolBox.SOUNDS + randomSound + "\" -filter_complex \"[1:a]volume=1,apad[A];[0:a][A]amerge[out]\" -ar 44100 -map 0:v -map [out] -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -122,7 +122,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -i \"" + toolBox.SOUNDS + randomSound + "\" -filter_complex \"[1:0]apad\" -shortest" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -i \"" + toolBox.SOUNDS + randomSound + "\" -filter_complex \"[1:0]apad\" -shortest -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -171,7 +171,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf reverse -af areverse" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf reverse -af areverse -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -219,7 +219,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf setpts=0.5*PTS -filter:a atempo=2.0" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf setpts=0.5*PTS -filter:a atempo=2.0 -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -267,7 +267,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf setpts=2*PTS -filter:a atempo=0.5" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf setpts=2*PTS -filter:a atempo=0.5 -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -315,7 +315,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af chorus=0.5:0.9:50|60|40:0.4|0.32|0.3:0.25|0.4|0.3:2|2.3|1.3" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af chorus=0.5:0.9:50|60|40:0.4|0.32|0.3:0.25|0.4|0.3:2|2.3|1.3 -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -363,7 +363,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af vibrato=f=7.0:d=0.5" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af vibrato=f=7.0:d=0.5 -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -411,7 +411,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af tremolo=f=10.0:d=0.7" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af tremolo=f=10.0:d=0.7 -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -459,7 +459,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af acrusher=.1:1:64:0:log" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af acrusher=.1:1:64:0:log -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -507,7 +507,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf setpts=0.5*PTS -af asetrate=88200,aresample=44100" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf setpts=0.5*PTS -af asetrate=88200,aresample=44100 -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -555,7 +555,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf setpts=2*PTS -af asetrate=22050,aresample=44100" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf setpts=2*PTS -af asetrate=22050,aresample=44100 -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -603,7 +603,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af asetrate=88200,aresample=44100,atempo=0.5" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af asetrate=88200,aresample=44100,atempo=0.5 -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -651,7 +651,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af asetrate=22050,aresample=44100,atempo=2" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af asetrate=22050,aresample=44100,atempo=2 -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -699,7 +699,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -filter_complex \"[0:v]reverse[vid];[0:a]areverse[aud];[0:v][0:a][vid][aud]concat=n=2:v=1:a=1[outv][outa]\" -map [outv] -map [outa]" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -filter_complex \"[0:v]reverse[vid];[0:a]areverse[aud];[0:v][0:a][vid][aud]concat=n=2:v=1:a=1[outv][outa]\" -map [outv] -map [outa] -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -747,7 +747,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -filter_complex \"[0:v]reverse[vid];[0:a]areverse[aud];[vid][aud][0:v][0:a]concat=n=2:v=1:a=1[outv][outa]\"" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -filter_complex \"[0:v]reverse[vid];[0:a]areverse[aud];[vid][aud][0:v][0:a]concat=n=2:v=1:a=1[outv][outa]\" -map [outv] -map [outa] -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -795,7 +795,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf scale=iw/32:ih/32 -sws_flags neighbor -s " + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf scale=iw/32:ih/32 -sws_flags neighbor -s " + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + " -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -843,7 +843,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf scale=iw/30:ih/30 -sws_flags neighbor -s " + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + " -af aresample=7350,aresample=44100" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf scale=iw/30:ih/30 -s " + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + " -af aresample=7350,aresample=44100 -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -891,7 +891,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf convolution=\"-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2\"" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf convolution=\"-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2\" -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -939,7 +939,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf \"transpose=1,split [main][tmp];[tmp] crop=iw:ih/2:0:0,vflip [flip];[main][flip] overlay=0:H/2,transpose=2\"" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf \"transpose=1,split [main][tmp];[tmp] crop=iw:ih/2:0:0,vflip [flip];[main][flip] overlay=0:H/2,transpose=2\" -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -987,7 +987,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf \"hflip,transpose=1,split [main][tmp];[tmp] crop=iw:ih/2:0:0,vflip [flip];[main][flip] overlay=0:H/2,transpose=2\"" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf \"hflip,transpose=1,split [main][tmp];[tmp] crop=iw:ih/2:0:0,vflip [flip];[main][flip] overlay=0:H/2,transpose=2\" -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -1035,7 +1035,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf \"split[main][tmp];[tmp] crop=iw:ih/2:0:0,vflip[flip];[main][flip]overlay=0:H/2\"" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf \"split[main][tmp];[tmp] crop=iw:ih/2:0:0,vflip[flip];[main][flip]overlay=0:H/2\" -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -1083,7 +1083,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf \"vflip,split[main][tmp];[tmp]crop=iw:ih/2:0:0,vflip[flip];[main][flip]overlay=0:H/2\"" + toolBox.ACCEL + " -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -vf \"vflip,split[main][tmp];[tmp]crop=iw:ih/2:0:0,vflip[flip];[main][flip]overlay=0:H/2\" -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -1156,17 +1156,17 @@ namespace YTPPlus
 
                 string[] commands = new string[6];
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=22050,aresample=44100,atempo=2" + toolBox.ACCEL + " -y \"" + toolBox.TEMP + "temp1.aac\"", 0);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=22050,aresample=44100,atempo=2 -y \"" + toolBox.TEMP + "temp1.aac\"", 0);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=33037.671045130824,aresample=44100,atempo=1.3348398541700344" + toolBox.ACCEL + " -y \"" + toolBox.TEMP + "temp2.aac\"", 1);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=33037.671045130824,aresample=44100,atempo=1.3348398541700344 -y \"" + toolBox.TEMP + "temp2.aac\"", 1);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=55562.51830036391,aresample=44100,atempo=0.7937005259840998" + toolBox.ACCEL + " -y \"" + toolBox.TEMP + "temp3.aac\"", 2);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=55562.51830036391,aresample=44100,atempo=0.7937005259840998 -y \"" + toolBox.TEMP + "temp3.aac\"", 2);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=66075.34209026165,aresample=44100,atempo=0.6674199270850172" + toolBox.ACCEL + " -y \"" + toolBox.TEMP + "temp4.aac\"", 3);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=66075.34209026165,aresample=44100,atempo=0.6674199270850172 -y \"" + toolBox.TEMP + "temp4.aac\"", 3);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=88200,aresample=44100,atempo=0.5" + toolBox.ACCEL + " -y \"" + toolBox.TEMP + "temp5.aac\"", 4);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=88200,aresample=44100,atempo=0.5 -y \"" + toolBox.TEMP + "temp5.aac\"", 4);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -i \"" + toolBox.TEMP + "temp1.aac\" -i \"" + toolBox.TEMP + "temp2.aac\" -i \"" + toolBox.TEMP + "temp3.aac\" -i \"" + toolBox.TEMP + "temp4.aac\" -i \"" + toolBox.TEMP + "temp5.aac\" -filter_complex \"[0:a][1:a][2:a][3:a][4:a][5:a]amix=inputs=6[a]\" -map 0:v -map [a] -vf negate" + toolBox.ACCEL + " -y \"" + video + "\"", 5);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -i \"" + toolBox.TEMP + "temp1.aac\" -i \"" + toolBox.TEMP + "temp2.aac\" -i \"" + toolBox.TEMP + "temp3.aac\" -i \"" + toolBox.TEMP + "temp4.aac\" -i \"" + toolBox.TEMP + "temp5.aac\" -filter_complex \"[0:a][1:a][2:a][3:a][4:a][5:a]amix=inputs=6[a]\" -map 0:v -map [a] -vf negate -y \"" + video + "\"", 5);
 
                 int exitValue;
                 foreach (string cmd in commands)
@@ -1203,11 +1203,11 @@ namespace YTPPlus
                 }
 
                 File.Delete(temp);
+                File.Delete(temp1);
                 File.Delete(temp2);
                 File.Delete(temp3);
                 File.Delete(temp4);
                 File.Delete(temp5);
-                File.Delete(temp6);
             }
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
@@ -1219,11 +1219,10 @@ namespace YTPPlus
             {
                 FileInfo inVid = new FileInfo(video);
                 string temp = toolBox.TEMP + "temp.mp4";   //og file
-                string temp2 = toolBox.TEMP + "temp2.mp4"; //1st cut
+                string temp2 = toolBox.TEMP + "temp2.mp4"; //1st cut/forwards (silent)
                 string temp3 = toolBox.TEMP + "temp3.mp4"; //backwards (silent)
-                string temp4 = toolBox.TEMP + "temp4.mp4"; //forwards (silent)
-                string temp5 = toolBox.TEMP + "temp5.mp4"; //backwards & forwards concatenated
-                string temp6 = toolBox.TEMP + "temp6.mp4"; //backwards & forwards concatenated sped up
+                string temp4 = toolBox.TEMP + "temp4.mp4"; //backwards & forwards concatenated
+                string temp5 = toolBox.TEMP + "temp5.mp4"; //backwards & forwards concatenated sped up
 
                 if (File.Exists(video))
                 {
@@ -1246,10 +1245,6 @@ namespace YTPPlus
                 {
                     File.Delete(temp5);
                 }
-                if (File.Exists(temp6))
-                {
-                    File.Delete(temp6);
-                }
 
                 string randomSound = pickMusic();
 
@@ -1257,17 +1252,15 @@ namespace YTPPlus
                 int randomTime = randomInt(3, 9);
                 int randomTime2 = randomInt(0, 1);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -to 00:00:0" + randomTime2 + "." + randomTime + " -an" + toolBox.ACCEL + " -y \"" + toolBox.TEMP + "temp2.mp4\"", 0);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -to 00:00:0" + randomTime2 + "." + randomTime + " -an -y \"" + toolBox.TEMP + "temp2.mp4\"", 0);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp2.mp4\" -vf reverse" + toolBox.ACCEL + " -y \"" + toolBox.TEMP + "temp3.mp4\"", 1);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp2.mp4\" -vf reverse -y \"" + toolBox.TEMP + "temp3.mp4\"", 1);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp3.mp4\" -vf reverse" + toolBox.ACCEL + " -y \"" + toolBox.TEMP + "temp4.mp4\"", 2);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp3.mp4\" -i \"" + toolBox.TEMP + "temp2.mp4\" -filter_complex \"[0:v:0][1:v:0][0:v:0][1:v:0][0:v:0][1:v:0][0:v:0][1:v:0]concat=n=8:v=1[outv]\" -map [outv] -c:v libx264 -y \"" + toolBox.TEMP + "temp4.mp4\"", 3);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp3.mp4\" -i \"" + toolBox.TEMP + "temp4.mp4\" -filter_complex \"[0:v:0][1:v:0][0:v:0][1:v:0][0:v:0][1:v:0][0:v:0][1:v:0]concat=n=8:v=1[outv]\" -map [outv] -c:v libx264" + toolBox.ACCEL + " -y \"" + toolBox.TEMP + "temp5.mp4\"", 3);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp4.mp4\" -vf setpts=0.5*PTS -y \"" + toolBox.TEMP + "temp5.mp4\"", 4);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp5.mp4\" -vf setpts=0.5*PTS" + toolBox.ACCEL + " -y \"" + toolBox.TEMP + "temp6.mp4\"", 4);
-
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp6.mp4\" -i \"" + toolBox.MUSIC + randomSound + "\" -ar 44100 -c:v libx264 -map 0:v:0 -map 1:a:0 -shortest" + toolBox.ACCEL + " -y \"" + video + "\"", 5);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp5.mp4\" -i \"" + toolBox.MUSIC + randomSound + "\" -ar 44100 -c:v libx264 -map 0:v:0 -map 1:a:0 -shortest -y \"" + video + "\"", 5);
 
                 int exitValue;
                 foreach (string cmd in commands)
@@ -1308,7 +1301,6 @@ namespace YTPPlus
                 File.Delete(temp3);
                 File.Delete(temp4);
                 File.Delete(temp5);
-                File.Delete(temp6);
             }
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
@@ -1319,15 +1311,18 @@ namespace YTPPlus
             try
             {
                 FileInfo inVid = new FileInfo(video);
+                string temp = toolBox.TEMP + "temp.mp4";
 
+                string[] commands = new string[8];
+                string[] args = new string[8];
                 if (File.Exists(video))
                 {
-                    string[] commands = new string[8];
-                    string[] args = new string[8];
-                    commands.SetValue(toolBox.FFMPEG, 0);
-                    args.SetValue("-i \"" + video + "\" -vf \"select=gte(n\\,1)\" -vframes 1" + toolBox.ACCEL + " -y \"" + toolBox.TEMP + "squidward0.png\"", 0);
-                    File.Delete(video);
+                    File.Delete(temp);
+                    inVid.MoveTo(temp);
                 }
+
+                commands.SetValue(toolBox.FFMPEG, 0);
+                args.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -an -vf \"select=gte(n\\,1)\" -vframes 1 -y \"" + toolBox.TEMP + "squidward0.png\"", 0);
 
                 for (int i = 1; i <= 5; i++)
                 {
@@ -1466,7 +1461,7 @@ namespace YTPPlus
                 writer.Close();
                 string randomSound = pickSquidwardMusic();
                 commands.SetValue(toolBox.FFMPEG, 7);
-                args.SetValue("-f concat -safe 0 -i \"" + toolBox.TEMP + "concatsquidward.txt\" -i \"" + toolBox.RESOURCES + "squidward/" + randomSound + "\" -map 0:v:0 -map 1:a:0 -pix_fmt yuv420p" + toolBox.ACCEL + " -y \"" + video + "\"", 7);
+                args.SetValue("-f concat -safe 0 -i \"" + toolBox.TEMP + "concatsquidward.txt\" -i \"" + toolBox.RESOURCES + "squidward/" + randomSound + "\" -map 0:v:0 -map 1:a:0 -pix_fmt yuv420p -y \"" + video + "\"", 7);
 
                 int exitValue;
                 for (int i = 0; i < commands.Length; i++)
@@ -1522,7 +1517,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = plugin;
-                startInfo.Arguments = video + " " + width + " " + height + " " + toolBox.TEMP + " " + toolBox.FFMPEG + " " + toolBox.FFPROBE + " " + toolBox.MAGICK + " " + toolBox.RESOURCES + " " + toolBox.SOUNDS + " " + toolBox.SOURCES + " " + toolBox.MUSIC + " " + toolBox.ACCEL + " " + startOfClip.ToString("0.#########################", new CultureInfo("en-US")) + " " + endOfClip.ToString("0.#########################", new CultureInfo("en-US"));
+                startInfo.Arguments = video + " " + width + " " + height + " " + toolBox.TEMP + " " + toolBox.FFMPEG + " " + toolBox.FFPROBE + " " + toolBox.MAGICK + " " + toolBox.RESOURCES + " " + toolBox.SOUNDS + " " + toolBox.SOURCES + " " + toolBox.MUSIC + " " + startOfClip.ToString("0.#########################", new CultureInfo("en-US")) + " " + endOfClip.ToString("0.#########################", new CultureInfo("en-US"));
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;

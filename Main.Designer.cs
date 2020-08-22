@@ -657,7 +657,6 @@ namespace YTPPlusPlus
             // 
             this.m_tools.Index = 3;
             this.m_tools.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.accel,
             this.pluginTest,
             this.executables,
             this.folders,
@@ -665,12 +664,6 @@ namespace YTPPlusPlus
             this.m_printconfig});
             this.m_tools.ShowShortcut = false;
             this.m_tools.Text = "Tools";
-            // 
-            // accel
-            // 
-            this.accel.Index = 0;
-            this.accel.Text = "Enable GPU acceleration";
-            this.accel.Click += new System.EventHandler(this.accel_Click);
             // 
             // pluginTest
             // 
@@ -1217,13 +1210,27 @@ namespace YTPPlusPlus
         private System.Windows.Forms.FolderBrowserDialog folderBrowserVLC;
         private System.Windows.Forms.MenuItem m_effects;
         private System.Windows.Forms.MenuItem videoeffects;
+        private System.Windows.Forms.MenuItem reverse;
         private System.Windows.Forms.MenuItem effect_Reverse;
+        private System.Windows.Forms.MenuItem effect_ForwardReverse;
+        private System.Windows.Forms.MenuItem effect_ReverseForward;
         private System.Windows.Forms.MenuItem speedup;
-        private System.Windows.Forms.MenuItem effect_HighPitch;
+        private System.Windows.Forms.MenuItem effect_SpeedUpHighPitch;
         private System.Windows.Forms.MenuItem effect_SpeedUp;
+        private System.Windows.Forms.MenuItem effect_HighPitch;
         private System.Windows.Forms.MenuItem slowdown;
-        private System.Windows.Forms.MenuItem effect_LowPitch;
+        private System.Windows.Forms.MenuItem effect_SlowDownLowPitch;
         private System.Windows.Forms.MenuItem effect_SlowDown;
+        private System.Windows.Forms.MenuItem effect_LowPitch;
+        private System.Windows.Forms.MenuItem effect_Pixelate;
+        private System.Windows.Forms.MenuItem effect_BadQuality;
+        private System.Windows.Forms.MenuItem effect_Emboss;
+        private System.Windows.Forms.MenuItem symmetry;
+        private System.Windows.Forms.MenuItem effect_SymmetryHorizontal1;
+        private System.Windows.Forms.MenuItem effect_SymmetryHorizontal2;
+        private System.Windows.Forms.MenuItem effect_SymmetryVertical1;
+        private System.Windows.Forms.MenuItem effect_SymmetryVertical2;
+        private System.Windows.Forms.MenuItem effect_GMajor;
         private System.Windows.Forms.MenuItem effect_Dance;
         private System.Windows.Forms.MenuItem effect_Squidward;
         private System.Windows.Forms.MenuItem audioeffects;
@@ -1233,6 +1240,8 @@ namespace YTPPlusPlus
         private System.Windows.Forms.MenuItem effect_RandomSoundMute;
         private System.Windows.Forms.MenuItem effect_Chorus;
         private System.Windows.Forms.MenuItem effect_Vibrato;
+        private System.Windows.Forms.MenuItem effect_Tremolo;
+        private System.Windows.Forms.MenuItem effect_Earrape;
         private System.Windows.Forms.MenuItem noPlugins;
         private System.Windows.Forms.MenuItem pluginTest;
         private System.Windows.Forms.MenuItem executables;

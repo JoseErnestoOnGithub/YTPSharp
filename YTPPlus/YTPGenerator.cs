@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +44,6 @@ namespace YTPPlus
         public bool effect24;
         public bool effect25;
 
-        public bool accel = true;
         public bool pluginTest = false;
         public int pluginCount = 0;
         public List<string> plugins = new List<string>();
@@ -142,11 +141,15 @@ namespace YTPPlus
                             toolBox.snipVideo(sourceToPick, startOfClip, endOfClip, toolBox.TEMP + "video" + i, width, height);
                         }
                         //Add a random effect to the video
-                        int effect = giveProbability(0, 26 + pluginCount);
+                        int effect = 0;
                         if (pluginTest)
                             effect = 27;
-                        else if (effect > 0)
+                        else
+                        {
+                            effect = giveProbability(0, 26 + pluginCount);
+                            if (effect > 0)
                             Console.WriteLine("STARTING EFFECT ON CLIP " + i + " EFFECT" + effect);
+                        }
                         String clipToWorkWith = toolBox.TEMP + "video" + i + ".mp4";
                         switch (effect)
                         {
@@ -252,9 +255,8 @@ namespace YTPPlus
                                 break;
                             default:
                                 if (effect >= 27 && effect <= 26+pluginCount)
-                                {
                                     effectsFactory.effect_Plugin(clipToWorkWith, width, height, plugins[rnd.Next(plugins.Count)], startOfClip, endOfClip);
-                                }
+                                break;
                         }
                     }
                 }
@@ -303,7 +305,6 @@ namespace YTPPlus
             Console.WriteLine("My SOURCES is: " + toolBox.SOURCES);
             Console.WriteLine("My MUSIC is: " + toolBox.MUSIC);
             Console.WriteLine("My RESOURCES is: " + toolBox.RESOURCES);
-            Console.WriteLine("Acceleration is: " + toolBox.accel + " and arg is " + toolBox.ACCEL);
             vidThreadWorker.DoWork += new DoWorkEventHandler(vidThread);
             vidThreadWorker.WorkerReportsProgress = true;
             vidThreadWorker.WorkerSupportsCancellation = true;

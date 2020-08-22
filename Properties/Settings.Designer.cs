@@ -340,18 +340,6 @@ namespace YTPPlusPlus.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Accel {
-            get {
-                return ((bool)(this["Accel"]));
-            }
-            set {
-                this["Accel"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool PluginTest {
             get {
                 return ((bool)(this["PluginTest"]));
@@ -387,7 +375,7 @@ namespace YTPPlusPlus.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool InsertOutro {
             get {
                 return ((bool)(this["InsertOutro"]));

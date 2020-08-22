@@ -471,7 +471,7 @@ namespace YTPPlusPlus.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ffmpeg")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ffmpeg.exe")]
         public string FFmpeg {
             get {
                 return ((string)(this["FFmpeg"]));
@@ -483,7 +483,7 @@ namespace YTPPlusPlus.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ffprobe")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ffprobe.exe")]
         public string FFprobe {
             get {
                 return ((string)(this["FFprobe"]));

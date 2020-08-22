@@ -117,10 +117,10 @@
       <Value Profile="(Default)">resources\outro.mp4</Value>
     </Setting>
     <Setting Name="FFmpeg" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ffmpeg</Value>
+      <Value Profile="(Default)">ffmpeg.exe</Value>
     </Setting>
     <Setting Name="FFprobe" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ffprobe</Value>
+      <Value Profile="(Default)">ffprobe.exe</Value>
     </Setting>
     <Setting Name="Magick" Type="System.String" Scope="User">
       <Value Profile="(Default)">magick</Value>

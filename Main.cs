@@ -19,8 +19,8 @@ namespace YTPPlusPlus
         Vlc.DotNet.Forms.VlcControl Player;
         bool renderComplete = true;
         //tool variables
-        string ffmpeg = "ffmpeg.exe";
-        string ffprobe = "ffprobe.exe";
+        string ffmpeg = "ffmpeg";
+        string ffprobe = "ffprobe";
         string magick = "magick";
         string temp = "temp\\";
         string sounds = "sounds\\";
@@ -55,8 +55,7 @@ namespace YTPPlusPlus
         bool effect24Def = true;
         bool effect25Def = true;
         bool introBoolDef = false;
-        bool outroBoolDef = true;
-        bool accelDef = true;
+        bool outroBoolDef = false;
         bool pluginTestDef = false;
         int clipCountDef = 20;
         int widthDef = 640;
@@ -97,8 +96,8 @@ namespace YTPPlusPlus
             this.effect_SlowDownLowPitch.Checked = effect11Def;
             this.effect_HighPitch.Checked = effect12Def;
             this.effect_LowPitch.Checked = effect13Def;
-            this.effect_FowardReverse.Checked = effect14Def;
-            this.effect_ReverseFoward.Checked = effect15Def;
+            this.effect_ForwardReverse.Checked = effect14Def;
+            this.effect_ReverseForward.Checked = effect15Def;
             this.effect_Pixelate.Checked = effect16Def;
             this.effect_BadQuality.Checked = effect17Def;
             this.effect_Emboss.Checked = effect18Def;
@@ -109,7 +108,6 @@ namespace YTPPlusPlus
             this.effect_GMajor.Checked = effect23Def;
             this.effect_Dance.Checked = effect24Def;
             this.effect_Squidward.Checked = effect25Def;
-            this.accel.Checked = accelDef;
             this.pluginTest.Checked = pluginTestDef;
             this.InsertIntro.Checked = introBoolDef;
             this.InsertOutro.Checked = outroBoolDef;
@@ -189,7 +187,6 @@ namespace YTPPlusPlus
             this.effect_GMajor.Checked = Properties.Settings.Default.effect_GMajor;
             this.effect_Dance.Checked = Properties.Settings.Default.effect_Dance;
             this.effect_Squidward.Checked = Properties.Settings.Default.effect_Squidward;
-            this.accel.Checked = Properties.Settings.Default.AccelEnabled;
             this.pluginTest.Checked = Properties.Settings.Default.PluginTest;
             this.InsertIntro.Checked = Properties.Settings.Default.InsertIntro;
             this.InsertOutro.Checked = Properties.Settings.Default.InsertOutro;
@@ -869,40 +866,6 @@ namespace YTPPlusPlus
                     generator.toolBox.SOURCES = this.TransitionDir.Text;
                     generator.toolBox.intro = this.Intro.Text;
                     generator.toolBox.outro = this.Outro.Text;
-		    generator.toolBox.accel = this.accel.Checked;
-                    if (generator.toolBox.accel == true)
-                    {
-                        ManagementObjectSearcher objvide = new ManagementObjectSearcher("select * from Win32_VideoController");
-                        foreach (ManagementObject obj in objvide.Get())
-                        {
-                            foreach (PropertyData property in obj.Properties)
-                            {
-                                if (property.Name == "Description")
-                                {
-                                    string name = property.Value.ToString();
-                                    if (name.ToLower().Contains("nvidia") || name.ToLower().Contains("gtx") || name.ToLower().Contains("titan") || name.ToLower().Contains("rtx") || name.ToLower().Contains("quatro"))
-                                    {
-                                        Console.WriteLine("Nvidia GPU detected, using NVENC for acceleration");
-                                        generator.toolBox.ACCEL = " -c:v h264_nvenc";
-                                    }
-                                    else if (name.ToLower().Contains("amd") || name.ToLower().Contains("radeon") || name.ToLower().Contains("rx") || name.ToLower().Contains("vega"))
-                                    {
-                                        Console.WriteLine("AMD GPU detected, using AMF for acceleration");
-                                        generator.toolBox.ACCEL = " -c:v h264_amf";
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Unknown GPU??? Got: " + name + " but expected to be a \"AMD\" or \"Nvidia\" GPU");
-                                        generator.toolBox.ACCEL = "";
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        generator.toolBox.ACCEL = "";
-                    }
                     generator.effect1 = this.effect_RandomSound.Checked;
                     generator.effect2 = this.effect_RandomSoundMute.Checked;
                     generator.effect3 = this.effect_Reverse.Checked;
@@ -1204,12 +1167,6 @@ namespace YTPPlusPlus
         {
             effect_Earrape.Checked = !effect_Earrape.Checked;
             Properties.Settings.Default.effect_Earrape = effect_Earrape.Checked;
-        }
-
-        private void accel_Click(object sender, EventArgs e)
-        {
-            accel.Checked = !accel.Checked;
-            Properties.Settings.Default.Accel = Accel.Checked;
         }
 
         private void pluginTest_Click(object sender, EventArgs e)

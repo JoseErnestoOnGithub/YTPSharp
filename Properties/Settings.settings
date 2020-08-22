@@ -81,10 +81,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="effect_Squidward" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="Accel" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="PluginTest" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -120,10 +117,10 @@
       <Value Profile="(Default)">resources\outro.mp4</Value>
     </Setting>
     <Setting Name="FFmpeg" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ffmpeg.exe</Value>
+      <Value Profile="(Default)">ffmpeg</Value>
     </Setting>
     <Setting Name="FFprobe" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ffprobe.exe</Value>
+      <Value Profile="(Default)">ffprobe</Value>
     </Setting>
     <Setting Name="Magick" Type="System.String" Scope="User">
       <Value Profile="(Default)">magick</Value>

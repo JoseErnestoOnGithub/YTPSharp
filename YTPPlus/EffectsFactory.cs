@@ -1248,7 +1248,7 @@ namespace YTPPlus
 
                 string randomSound = pickMusic();
 
-                string[] commands = new string[6];
+                string[] commands = new string[5];
                 int randomTime = randomInt(3, 9);
                 int randomTime2 = randomInt(0, 1);
 

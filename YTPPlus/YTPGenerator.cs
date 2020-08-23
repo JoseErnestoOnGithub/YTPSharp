@@ -155,63 +155,63 @@ namespace YTPPlus
                         {
                             case 1:
                                 if (effect1 == true)
-                                    effectsFactory.effect_RandomSound(clipToWorkWith, width, height);
+                                    effectsFactory.effect_RandomSound(clipToWorkWith);
                                 break;
                             case 2:
                                 if (effect2 == true)
-                                    effectsFactory.effect_RandomSoundMute(clipToWorkWith, width, height);
+                                    effectsFactory.effect_RandomSoundMute(clipToWorkWith);
                                 break;
                             case 3:
                                 if (effect3 == true)
-                                    effectsFactory.effect_Reverse(clipToWorkWith, width, height);
+                                    effectsFactory.effect_Reverse(clipToWorkWith);
                                 break;
                             case 4:
                                 if (effect4 == true)
-                                    effectsFactory.effect_SpeedUp(clipToWorkWith, width, height);
+                                    effectsFactory.effect_SpeedUp(clipToWorkWith);
                                 break;
                             case 5:
                                 if (effect5 == true)
-                                    effectsFactory.effect_SlowDown(clipToWorkWith, width, height);
+                                    effectsFactory.effect_SlowDown(clipToWorkWith);
                                 break;
                             case 6:
                                 if (effect6 == true)
-                                    effectsFactory.effect_Chorus(clipToWorkWith, width, height);
+                                    effectsFactory.effect_Chorus(clipToWorkWith);
                                 break;
                             case 7:
                                 if (effect7 == true)
-                                    effectsFactory.effect_Vibrato(clipToWorkWith, width, height);
+                                    effectsFactory.effect_Vibrato(clipToWorkWith);
                                 break;
                             case 8:
                                 if (effect8 == true)
-                                    effectsFactory.effect_Tremolo(clipToWorkWith, width, height);
+                                    effectsFactory.effect_Tremolo(clipToWorkWith);
                                 break;
                             case 9:
                                 if (effect9 == true)
-                                    effectsFactory.effect_Earrape(clipToWorkWith, width, height);
+                                    effectsFactory.effect_Earrape(clipToWorkWith);
                                 break;
                             case 10:
                                 if (effect10 == true)
-                                    effectsFactory.effect_SpeedUpHighPitch(clipToWorkWith, width, height);
+                                    effectsFactory.effect_SpeedUpHighPitch(clipToWorkWith);
                                 break;
                             case 11:
                                 if (effect11 == true)
-                                    effectsFactory.effect_SlowDownLowPitch(clipToWorkWith, width, height);
+                                    effectsFactory.effect_SlowDownLowPitch(clipToWorkWith);
                                 break;
                             case 12:
                                 if (effect12 == true)
-                                    effectsFactory.effect_HighPitch(clipToWorkWith, width, height);
+                                    effectsFactory.effect_HighPitch(clipToWorkWith);
                                 break;
                             case 13:
                                 if (effect13 == true)
-                                    effectsFactory.effect_LowPitch(clipToWorkWith, width, height);
+                                    effectsFactory.effect_LowPitch(clipToWorkWith);
                                 break;
                             case 14:
                                 if (effect14 == true)
-                                    effectsFactory.effect_ForwardReverse(clipToWorkWith, width, height);
+                                    effectsFactory.effect_ForwardReverse(clipToWorkWith);
                                 break;
                             case 15:
                                 if (effect15 == true)
-                                    effectsFactory.effect_ReverseForward(clipToWorkWith, width, height);
+                                    effectsFactory.effect_ReverseForward(clipToWorkWith);
                                 break;
                             case 16:
                                 if (effect16 == true)
@@ -223,31 +223,31 @@ namespace YTPPlus
                                 break;
                             case 18:
                                 if (effect18 == true)
-                                    effectsFactory.effect_Emboss(clipToWorkWith, width, height);
+                                    effectsFactory.effect_Emboss(clipToWorkWith);
                                 break;
                             case 19:
                                 if (effect19 == true)
-                                    effectsFactory.effect_SymmetryHorizontal1(clipToWorkWith, width, height);
+                                    effectsFactory.effect_SymmetryHorizontal1(clipToWorkWith);
                                 break;
                             case 20:
                                 if (effect20 == true)
-                                    effectsFactory.effect_SymmetryHorizontal2(clipToWorkWith, width, height);
+                                    effectsFactory.effect_SymmetryHorizontal2(clipToWorkWith);
                                 break;
                             case 21:
                                 if (effect21 == true)
-                                    effectsFactory.effect_SymmetryVertical1(clipToWorkWith, width, height);
+                                    effectsFactory.effect_SymmetryVertical1(clipToWorkWith);
                                 break;
                             case 22:
                                 if (effect22 == true)
-                                    effectsFactory.effect_SymmetryVertical2(clipToWorkWith, width, height);
+                                    effectsFactory.effect_SymmetryVertical2(clipToWorkWith);
                                 break;
                             case 23:
                                 if (effect23 == true)
-                                    effectsFactory.effect_GMajor(clipToWorkWith, width, height);
+                                    effectsFactory.effect_GMajor(clipToWorkWith);
                                 break;
                             case 24:
                                 if (effect24 == true)
-                                    effectsFactory.effect_Dance(clipToWorkWith, width, height);
+                                    effectsFactory.effect_Dance(clipToWorkWith);
                                 break;
                             case 25:
                                 if (effect25 == true)
@@ -263,8 +263,8 @@ namespace YTPPlus
                 if (outro)
                 {
                     Console.WriteLine("Outro clip enabled.");
-                    Console.WriteLine("Done: " + Decimal.Divide(MAX_CLIPS, MAX_CLIPS));
-                    vidThreadWorker.ReportProgress(Convert.ToInt32(Decimal.Divide(MAX_CLIPS, MAX_CLIPS) * 100, new CultureInfo("en-US")));
+                    Console.WriteLine("Done: " + Decimal.Divide(MAX_CLIPS - 1, MAX_CLIPS));
+                    vidThreadWorker.ReportProgress(Convert.ToInt32(Decimal.Divide(MAX_CLIPS - 1, MAX_CLIPS) * 100, new CultureInfo("en-US")));
                     Console.WriteLine(toolBox.outro);
                     Console.WriteLine("STARTING CLIP " + "video" + MAX_CLIPS);
                     toolBox.copyVideo(toolBox.outro, toolBox.TEMP + "video" + MAX_CLIPS, width, height);

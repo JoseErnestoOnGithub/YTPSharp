@@ -52,7 +52,7 @@ namespace YTPPlus
             return file.Name;
         }
         /* EFFECTS */
-        public void effect_RandomSound(string video, int width, int height)
+        public void effect_RandomSound(string video)
         {
             Console.WriteLine("effect_RandomSound initiated");
             try
@@ -102,7 +102,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_RandomSoundMute(string video, int width, int height)
+        public void effect_RandomSoundMute(string video)
         {
             Console.WriteLine("effect_RandomSoundMute initiated");
             try
@@ -117,12 +117,13 @@ namespace YTPPlus
                 }
                 
                 string randomSound = pickSound();
+                string soundLength = toolBox.getLength(toolBox.SOUNDS + randomSound);
                 
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -i \"" + toolBox.SOUNDS + randomSound + "\" -filter_complex \"[1:0]apad\" -shortest -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -i \"" + toolBox.SOUNDS + randomSound + "\" -to " + soundLength + " -filter_complex \"[1:0]apad\" -shortest -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -153,7 +154,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_Reverse(string video, int width, int height)
+        public void effect_Reverse(string video)
         {
             Console.WriteLine("effect_Reverse initiated");
             try
@@ -202,7 +203,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
         
-        public void effect_SpeedUp(string video, int width, int height)
+        public void effect_SpeedUp(string video)
         {
             Console.WriteLine("effect_SpeedUp initiated");
             try
@@ -250,7 +251,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_SlowDown(string video, int width, int height)
+        public void effect_SlowDown(string video)
         {
             Console.WriteLine("effect_SlowDown initiated");
             try
@@ -298,7 +299,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_Chorus(string video, int width, int height)
+        public void effect_Chorus(string video)
         {
             Console.WriteLine("effect_Chorus initiated");
             try
@@ -346,7 +347,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_Vibrato(string video, int width, int height)
+        public void effect_Vibrato(string video)
         {
             Console.WriteLine("effect_Vibrato initiated");
             try
@@ -394,7 +395,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_Tremolo(string video, int width, int height)
+        public void effect_Tremolo(string video)
         {
             Console.WriteLine("effect_Tremolo initiated");
             try
@@ -442,7 +443,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_Earrape(string video, int width, int height)
+        public void effect_Earrape(string video)
         {
             Console.WriteLine("effect_Earrape initiated");
             try
@@ -490,7 +491,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_SpeedUpHighPitch(string video, int width, int height)
+        public void effect_SpeedUpHighPitch(string video)
         {
             Console.WriteLine("effect_SpeedUpHighPitch initiated");
             try
@@ -538,7 +539,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_SlowDownLowPitch(string video, int width, int height)
+        public void effect_SlowDownLowPitch(string video)
         {
             Console.WriteLine("effect_SlowDownLowPitch initiated");
             try
@@ -586,7 +587,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_HighPitch(string video, int width, int height)
+        public void effect_HighPitch(string video)
         {
             Console.WriteLine("effect_HighPitch initiated");
             try
@@ -634,7 +635,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_LowPitch(string video, int width, int height)
+        public void effect_LowPitch(string video)
         {
             Console.WriteLine("effect_LowPitch initiated");
             try
@@ -682,7 +683,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_ForwardReverse(string video, int width, int height)
+        public void effect_ForwardReverse(string video)
         {
             Console.WriteLine("effect_ForwardReverse initiated");
             try
@@ -730,7 +731,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_ReverseForward(string video, int width, int height)
+        public void effect_ReverseForward(string video)
         {
             Console.WriteLine("effect_ReverseForward initiated");
             try
@@ -874,7 +875,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_Emboss(string video, int width, int height)
+        public void effect_Emboss(string video)
         {
             Console.WriteLine("effect_Emboss initiated");
             try
@@ -922,7 +923,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_SymmetryHorizontal1(string video, int width, int height)
+        public void effect_SymmetryHorizontal1(string video)
         {
             Console.WriteLine("effect_SymmetryHorizontal1 initiated");
             try
@@ -970,7 +971,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_SymmetryHorizontal2(string video, int width, int height)
+        public void effect_SymmetryHorizontal2(string video)
         {
             Console.WriteLine("effect_SymmetryHorizontal2 initiated");
             try
@@ -1018,7 +1019,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_SymmetryVertical1(string video, int width, int height)
+        public void effect_SymmetryVertical1(string video)
         {
             Console.WriteLine("effect_SymmetryVertical1 initiated");
             try
@@ -1066,7 +1067,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_SymmetryVertical2(string video, int width, int height)
+        public void effect_SymmetryVertical2(string video)
         {
             Console.WriteLine("effect_SymmetryVertical2 initiated");
             try
@@ -1114,7 +1115,7 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_GMajor(string video, int width, int height)
+        public void effect_GMajor(string video)
         {
             Console.WriteLine("effect_GMajor initiated");
             try
@@ -1212,17 +1213,16 @@ namespace YTPPlus
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
 
-        public void effect_Dance(string video, int width, int height)
+        public void effect_Dance(string video)
         {
             Console.WriteLine("effect_Dance initiated");
             try
             {
                 FileInfo inVid = new FileInfo(video);
-                string temp = toolBox.TEMP + "temp.mp4";   //og file
-                string temp2 = toolBox.TEMP + "temp2.mp4"; //1st cut/forwards (silent)
-                string temp3 = toolBox.TEMP + "temp3.mp4"; //backwards (silent)
-                string temp4 = toolBox.TEMP + "temp4.mp4"; //backwards & forwards concatenated
-                string temp5 = toolBox.TEMP + "temp5.mp4"; //backwards & forwards concatenated sped up
+                string temp = toolBox.TEMP + "temp.mp4";
+                string temp2 = toolBox.TEMP + "temp2.mp4";
+                string temp3 = toolBox.TEMP + "temp3.mp4";
+                string temp4 = toolBox.TEMP + "temp4.mp4";
 
                 if (File.Exists(video))
                 {
@@ -1241,26 +1241,20 @@ namespace YTPPlus
                 {
                     File.Delete(temp4);
                 }
-                if (File.Exists(temp5))
-                {
-                    File.Delete(temp5);
-                }
 
                 string randomSound = pickMusic();
 
-                string[] commands = new string[5];
+                string[] commands = new string[4];
                 int randomTime = randomInt(3, 9);
                 int randomTime2 = randomInt(0, 1);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -to 00:00:0" + randomTime2 + "." + randomTime + " -an -y \"" + toolBox.TEMP + "temp2.mp4\"", 0);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -an -to 00:00:0" + randomTime2 + "." + randomTime + " -y \"" + toolBox.TEMP + "temp2.mp4\"", 0);
 
                 commands.SetValue("-i \"" + toolBox.TEMP + "temp2.mp4\" -vf reverse -y \"" + toolBox.TEMP + "temp3.mp4\"", 1);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp3.mp4\" -i \"" + toolBox.TEMP + "temp2.mp4\" -filter_complex \"[0:v:0][1:v:0][0:v:0][1:v:0][0:v:0][1:v:0][0:v:0][1:v:0]concat=n=8:v=1[outv]\" -map [outv] -c:v libx264 -y \"" + toolBox.TEMP + "temp4.mp4\"", 3);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp3.mp4\" -i \"" + toolBox.TEMP + "temp2.mp4\" -filter_complex \"[0:v][1:v][0:v][1:v][0:v][1:v][0:v][1:v]concat=n=8:v=1[out]\" -map [out] -y \"" + toolBox.TEMP + "temp4.mp4\"", 2);
 
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp4.mp4\" -vf setpts=0.5*PTS -y \"" + toolBox.TEMP + "temp5.mp4\"", 4);
-
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp5.mp4\" -i \"" + toolBox.MUSIC + randomSound + "\" -ar 44100 -c:v libx264 -map 0:v:0 -map 1:a:0 -shortest -y \"" + video + "\"", 5);
+                commands.SetValue("-i \"" + toolBox.TEMP + "temp4.mp4\" -i \"" + toolBox.MUSIC + randomSound + "\" -ar 44100 -vf setpts=0.5*PTS -shortest -y \"" + video + "\"", 3);
 
                 int exitValue;
                 foreach (string cmd in commands)
@@ -1300,7 +1294,6 @@ namespace YTPPlus
                 File.Delete(temp2);
                 File.Delete(temp3);
                 File.Delete(temp4);
-                File.Delete(temp5);
             }
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }
@@ -1461,7 +1454,7 @@ namespace YTPPlus
                 writer.Close();
                 string randomSound = pickSquidwardMusic();
                 commands.SetValue(toolBox.FFMPEG, 7);
-                args.SetValue("-f concat -safe 0 -i \"" + toolBox.TEMP + "concatsquidward.txt\" -i \"" + toolBox.RESOURCES + "squidward/" + randomSound + "\" -map 0:v:0 -map 1:a:0 -pix_fmt yuv420p -y \"" + video + "\"", 7);
+                args.SetValue("-f concat -safe 0 -i \"" + toolBox.TEMP + "concatsquidward.txt\" -i \"" + toolBox.RESOURCES + "squidward/" + randomSound + "\" -map 0:v -map 1:a -pix_fmt yuv420p -y \"" + video + "\"", 7);
 
                 int exitValue;
                 for (int i = 0; i < commands.Length; i++)

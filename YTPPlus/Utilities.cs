@@ -267,14 +267,6 @@ namespace YTPPlus
 
                 process.WaitForExit();
                 stderrThread.Join();
-
-
-                //cmdLine = CommandLine.parse(command2);
-                //executor = new DefaultExecutor();
-                //exitValue = executor.execute(cmdLine);
-
-                //temp.delete();
-
             }
             catch (Exception ex) { Console.WriteLine(ex.StackTrace); }
         }

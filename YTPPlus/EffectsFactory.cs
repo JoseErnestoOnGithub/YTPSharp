@@ -1121,94 +1121,44 @@ namespace YTPPlus
             try
             {
                 FileInfo inVid = new FileInfo(video);
-                string temp = toolBox.TEMP + "temp.mp4";   //og file
-                string temp1 = toolBox.TEMP + "temp1.aac"; //key -12
-                string temp2 = toolBox.TEMP + "temp2.aac"; //key -5
-                string temp3 = toolBox.TEMP + "temp3.aac"; //key +4
-                string temp4 = toolBox.TEMP + "temp4.aac"; //key +7
-                string temp5 = toolBox.TEMP + "temp5.aac"; //key +12
-
+                string temp = toolBox.TEMP + "temp.mp4";
                 if (File.Exists(video))
                 {
                     File.Delete(temp);
                     inVid.MoveTo(temp);
                 }
-                if (File.Exists(temp1))
+
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                startInfo.FileName = toolBox.FFMPEG;
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -filter_complex \"[0:a]asetrate=22050,aresample=44100,atempo=2[lowc];[0:a]asetrate=33037.671045130824,aresample=44100,atempo=1.3348398541700344[lowg];[0:a]asetrate=55562.51830036391,aresample=44100,atempo=0.7937005259840998[e];[0:a]asetrate=66075.34209026165,aresample=44100,atempo=0.6674199270850172[g];[0:a]asetrate=88200,aresample=44100,atempo=0.5[highc];[0:a][lowc][lowg][e][g][highc]amix=inputs=6[aud]\" -map 0:v -map [aud] -vf negate -y \"" + video + "\"";
+                startInfo.UseShellExecute = false;
+                startInfo.RedirectStandardOutput = true;
+                process.StartInfo = startInfo;
+                process.Start();
+                // Read stderr synchronously (on another thread)
+
+                string errorText = null;
+                var stderrThread = new Thread(() => { errorText = process.StandardOutput.ReadToEnd(); });
+                stderrThread.Start();
+
+                // Read stdout synchronously (on this thread)
+
+                while (true)
                 {
-                    File.Delete(temp1);
-                }
-                if (File.Exists(temp2))
-                {
-                    File.Delete(temp2);
-                }
-                if (File.Exists(temp3))
-                {
-                    File.Delete(temp3);
-                }
-                if (File.Exists(temp4))
-                {
-                    File.Delete(temp4);
-                }
-                if (File.Exists(temp5))
-                {
-                    File.Delete(temp5);
-                }
+                    var line = process.StandardOutput.ReadLine();
+                    if (line == null)
+                        break;
 
-
-                string[] commands = new string[6];
-
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=22050,aresample=44100,atempo=2 -y \"" + toolBox.TEMP + "temp1.aac\"", 0);
-
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=33037.671045130824,aresample=44100,atempo=1.3348398541700344 -y \"" + toolBox.TEMP + "temp2.aac\"", 1);
-
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=55562.51830036391,aresample=44100,atempo=0.7937005259840998 -y \"" + toolBox.TEMP + "temp3.aac\"", 2);
-
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=66075.34209026165,aresample=44100,atempo=0.6674199270850172 -y \"" + toolBox.TEMP + "temp4.aac\"", 3);
-
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -vn -acodec aac -af asetrate=88200,aresample=44100,atempo=0.5 -y \"" + toolBox.TEMP + "temp5.aac\"", 4);
-
-                commands.SetValue("-i \"" + toolBox.TEMP + "temp.mp4\" -i \"" + toolBox.TEMP + "temp1.aac\" -i \"" + toolBox.TEMP + "temp2.aac\" -i \"" + toolBox.TEMP + "temp3.aac\" -i \"" + toolBox.TEMP + "temp4.aac\" -i \"" + toolBox.TEMP + "temp5.aac\" -filter_complex \"[0:a][1:a][2:a][3:a][4:a][5:a]amix=inputs=6[a]\" -map 0:v -map [a] -vf negate -y \"" + video + "\"", 5);
-
-                int exitValue;
-                foreach (string cmd in commands)
-                {
-                    System.Diagnostics.Process process = new System.Diagnostics.Process();
-                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-                    startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                    startInfo.FileName = toolBox.FFMPEG;
-                    startInfo.Arguments = cmd;
-                    startInfo.UseShellExecute = false;
-                    startInfo.RedirectStandardOutput = true;
-                    process.StartInfo = startInfo;
-                    process.Start();
-                    // Read stderr synchronously (on another thread)
-
-                    string errorText = null;
-                    var stderrThread = new Thread(() => { errorText = process.StandardOutput.ReadToEnd(); });
-                    stderrThread.Start();
-
-                    // Read stdout synchronously (on this thread)
-
-                    while (true)
-                    {
-                        var line = process.StandardOutput.ReadLine();
-                        if (line == null)
-                            break;
-
-                        Console.WriteLine(line);
-                    }
-
-                    process.WaitForExit();
-                    stderrThread.Join();
-                    exitValue = process.ExitCode;
+                    Console.WriteLine(line);
                 }
 
+                process.WaitForExit();
+                stderrThread.Join();
+
+                int exitValue = process.ExitCode;
                 File.Delete(temp);
-                File.Delete(temp1);
-                File.Delete(temp2);
-                File.Delete(temp3);
-                File.Delete(temp4);
-                File.Delete(temp5);
             }
             catch (Exception ex) { Console.WriteLine("effect" + "\n" + ex); }
         }

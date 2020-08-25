@@ -233,7 +233,7 @@ namespace YTPPlus
                 }
                 for (int i = 0; i < realcount; i++)
                 {
-                    command1 += ("[" + i + ":v:0][" + i + ":a:0]");
+                    command1 += ("[" + i + ":v][" + i + ":a]");
                 }
 
                 command1 += ("concat=n=" + realcount + ":v=1:a=1[outv][outa]\" -map [outv] -map [outa] -y \"" + ou + "\"");

@@ -54,6 +54,7 @@ namespace YTPPlusPlus
         bool effect23Def = true;
         bool effect24Def = true;
         bool effect25Def = true;
+        bool effect26Def = true;
         bool introBoolDef = false;
         bool outroBoolDef = false;
         bool pluginTestDef = false;
@@ -108,6 +109,7 @@ namespace YTPPlusPlus
             this.effect_GMajor.Checked = effect23Def;
             this.effect_Dance.Checked = effect24Def;
             this.effect_Squidward.Checked = effect25Def;
+            this.effect_SpartaRemix.Checked = effect26Def;
             this.pluginTest.Checked = pluginTestDef;
             this.InsertIntro.Checked = introBoolDef;
             this.InsertOutro.Checked = outroBoolDef;
@@ -116,23 +118,23 @@ namespace YTPPlusPlus
             this.HeightSet.Value = heightDef;
             this.MinStreamDur.Value = minStreamDef;
             this.MaxStreamDur.Value = maxStreamDef;
-            this.Intro.Text = Directory.GetCurrentDirectory() + "\\" + introDef;
-            this.Outro.Text = Directory.GetCurrentDirectory() + "\\" + outroDef;
-            this.ffmpeg = Directory.GetCurrentDirectory() + "\\" + ffmpegDef;
-            this.ffprobe = Directory.GetCurrentDirectory() + "\\" + ffprobeDef;
+            this.Intro.Text = introDef;
+            this.Outro.Text = outroDef;
+            this.ffmpeg = ffmpegDef;
+            this.ffprobe = ffprobeDef;
             this.magick = magickDef;
-            this.TransitionDir.Text = Directory.GetCurrentDirectory() + "\\" + sourcesDef;
-            this.temp = Directory.GetCurrentDirectory() + "\\" + tempDef;
-            this.sounds = Directory.GetCurrentDirectory() + "\\" + soundsDef;
-            this.music = Directory.GetCurrentDirectory() + "\\" + musicDef;
-            this.resources = Directory.GetCurrentDirectory() + "\\" + resourcesDef;
+            this.TransitionDir.Text = sourcesDef;
+            this.temp = tempDef;
+            this.sounds = soundsDef;
+            this.music = musicDef;
+            this.resources = resourcesDef;
             pluginCount = 0;
             enabledPlugins.Clear();
             plugins.MenuItems.Clear();
             this.renderCompleteSnd = new System.Media.SoundPlayer(this.resources + "\\rendercomplete.wav");
             this.renderFailedSnd = new System.Media.SoundPlayer(this.resources + "\\renderfailed.wav");
-            if (Directory.Exists(Directory.GetCurrentDirectory() + "\\plugins")) {
-                string[] d = Directory.GetFiles(Directory.GetCurrentDirectory() + "\\plugins", "*.bat");
+            if (Directory.Exists("plugins")) {
+                string[] d = Directory.GetFiles("plugins", "*.bat");
                 foreach (string s in d)
                 {
                     void f(object sender, EventArgs args)
@@ -151,7 +153,7 @@ namespace YTPPlusPlus
                         }
                     }
                     plugins.MenuItems.Remove(noPlugins);
-                    string newstring = s.Replace(Directory.GetCurrentDirectory() + "\\plugins\\", "");
+                    string newstring = s.Replace("plugins\\", "");
                     plugins.MenuItems.Add(new MenuItem(newstring, f));
                 }
             }
@@ -222,9 +224,9 @@ namespace YTPPlusPlus
             plugins.MenuItems.Clear();
             this.renderCompleteSnd = new System.Media.SoundPlayer(this.resources + "\\rendercomplete.wav");
             this.renderFailedSnd = new System.Media.SoundPlayer(this.resources + "\\renderfailed.wav");
-            if (Directory.Exists(Directory.GetCurrentDirectory() + "\\plugins"))
+            if (Directory.Exists("plugins"))
             {
-                string[] d = Directory.GetFiles(Directory.GetCurrentDirectory() + "\\plugins", "*.bat");
+                string[] d = Directory.GetFiles("plugins", "*.bat");
                 foreach (string s in d)
                 {
                     void f(object sender, EventArgs args)
@@ -243,7 +245,7 @@ namespace YTPPlusPlus
                         }
                     }
                     plugins.MenuItems.Remove(noPlugins);
-                    string newstring = s.Replace(Directory.GetCurrentDirectory() + "\\plugins\\", "");
+                    string newstring = s.Replace("plugins\\", "");
                     plugins.MenuItems.Add(new MenuItem(newstring, f));
                 }
             }
@@ -382,24 +384,6 @@ namespace YTPPlusPlus
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             //VLCCheck.global.Close();
             Player.Enabled = true;
-            if (Properties.Settings.Default.Intro == "resources\\intro.mp4")
-                Properties.Settings.Default.Intro = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Intro;
-            if (Properties.Settings.Default.Outro == "resources\\outro.mp4")
-                Properties.Settings.Default.Outro = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Outro;
-            if (Properties.Settings.Default.FFmpeg == "ffmpeg.exe")
-                Properties.Settings.Default.FFmpeg = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.FFmpeg;
-            if (Properties.Settings.Default.FFprobe == "ffprobe.exe")
-                Properties.Settings.Default.FFprobe = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.FFprobe;
-            if (Properties.Settings.Default.TransitionDir == "sources\\")
-                Properties.Settings.Default.TransitionDir = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TransitionDir;
-            if (Properties.Settings.Default.Temp == "temp\\")
-                Properties.Settings.Default.Temp = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Temp;
-            if (Properties.Settings.Default.Sounds == "sounds\\")
-                Properties.Settings.Default.Sounds = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Sounds;
-            if (Properties.Settings.Default.Music == "music\\")
-                Properties.Settings.Default.Music = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Music;
-            if (Properties.Settings.Default.Resources == "resources\\")
-                Properties.Settings.Default.Resources = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Resources;
             SetVars();
             HideConsoleWindow();
             this.Player.Enabled = false;
@@ -429,24 +413,6 @@ namespace YTPPlusPlus
                     PausePlay.Enabled = false;
                     Start.Enabled = false;
                     End.Enabled = false;
-                    if (Properties.Settings.Default.Intro == "resources\\intro.mp4")
-                        Properties.Settings.Default.Intro = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Intro;
-                    if (Properties.Settings.Default.Outro == "resources\\outro.mp4")
-                        Properties.Settings.Default.Outro = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Outro;
-                    if (Properties.Settings.Default.FFmpeg == "ffmpeg.exe")
-                        Properties.Settings.Default.FFmpeg = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.FFmpeg;
-                    if (Properties.Settings.Default.FFprobe == "ffprobe.exe")
-                        Properties.Settings.Default.FFprobe = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.FFprobe;
-                    if (Properties.Settings.Default.TransitionDir == "sources\\")
-                        Properties.Settings.Default.TransitionDir = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.TransitionDir;
-                    if (Properties.Settings.Default.Temp == "temp\\")
-                        Properties.Settings.Default.Temp = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Temp;
-                    if (Properties.Settings.Default.Sounds == "sounds\\")
-                        Properties.Settings.Default.Sounds = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Sounds;
-                    if (Properties.Settings.Default.Music == "music\\")
-                        Properties.Settings.Default.Music = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Music;
-                    if (Properties.Settings.Default.Resources == "resources\\")
-                        Properties.Settings.Default.Resources = Directory.GetCurrentDirectory() + "\\" + Properties.Settings.Default.Resources;
                     SetVars();
                     HideConsoleWindow();
                     this.SaveAs.Enabled = false;
@@ -680,35 +646,6 @@ namespace YTPPlusPlus
                     Array.Resize(ref sources, sources.Length + 1);
                     sources[sources.GetUpperBound(0)] = file;
                     Material.Text += file + "\n";
-                    //assuming these all don't work
-                    if (file.Contains(" "))
-                    {
-                        alert("One or more materials added in this batch has a space in its path or file name. While YTP++ will still try to render with the material in question, be aware that this may cause a render failure.");
-                    }
-                    else if (file.Contains("+"))
-                    {
-                        alert("One or more materials added in this batch has a + symbol in its path or file name. While YTP++ will still try to render with the material in question, be aware that this may cause a render failure.");
-                    }
-                    else if (file.Contains("%"))
-                    {
-                        alert("One or more materials added in this batch has a % symbol in its path or file name. While YTP++ will still try to render with the material in question, be aware that this may cause a render failure.");
-                    }
-                    else if (file.Contains("&"))
-                    {
-                        alert("One or more materials added in this batch has an & symbol in its path or file name. While YTP++ will still try to render with the material in question, be aware that this may cause a render failure.");
-                    }
-                    else if (file.Contains("*"))
-                    {
-                        alert("One or more materials added in this batch has a * symbol in its path or file name. While YTP++ will still try to render with the material in question, be aware that this may cause a render failure.");
-                    }
-                    else if (file.Contains("="))
-                    {
-                        alert("One or more materials added in this batch has a = symbol in its path or file name. While YTP++ will still try to render with the material in question, be aware that this may cause a render failure.");
-                    }
-                    else if (file.Contains("~"))
-                    {
-                        alert("One or more materials added in this batch has a ~ symbol in its path or file name. While YTP++ will still try to render with the material in question, be aware that this may cause a render failure.");
-                    }
                 }
             }
         }
@@ -800,11 +737,17 @@ namespace YTPPlusPlus
                     State = "Render failed",
                     Timestamps = timestamps
                 });
-                renderFailedSnd.Play();
+                if (File.Exists(this.resources + "\\renderfailed.wav"))
+                {
+                    renderFailedSnd.Play();
+                }
                 alert("An exception has occured during rendering. Rendering may have not produced a result.\n\nThe last exception to occur was:\n" + globalGen.exc.Message);
             } else
             {
-                renderCompleteSnd.Play();
+                if (File.Exists(this.resources + "\\rendercomplete.wav"))
+                {
+                    renderCompleteSnd.Play();
+                }
                 client.SetPresence(new RichPresence()
                 {
                     Details = titles[new Random().Next(0, titles.Length)],
@@ -820,7 +763,7 @@ namespace YTPPlusPlus
         }
         public void RenderVideo()
         {
-            if (sources.Length == 0)
+            if (sources.Length == 0 && InsertTransitions.Checked == false)
             {
                 alert("You need some sources...");
             }
@@ -891,6 +834,7 @@ namespace YTPPlusPlus
                     generator.effect23 = this.effect_GMajor.Checked;
                     generator.effect24 = this.effect_Dance.Checked;
                     generator.effect25 = this.effect_Squidward.Checked;
+                    generator.effect26 = this.effect_SpartaRemix.Checked;
                     generator.pluginCount = pluginCount;
                     generator.plugins = enabledPlugins;
                     generator.insertTransitionClips = InsertTransitions.Checked;
@@ -1132,6 +1076,12 @@ namespace YTPPlusPlus
         {
             effect_Squidward.Checked = !effect_Squidward.Checked;
             Properties.Settings.Default.effect_Squidward = effect_Squidward.Checked;
+        }
+
+        private void effect_SpartaRemix_Click(object sender, EventArgs e)
+        {
+            effect_SpartaRemix.Checked = !effect_SpartaRemix.Checked;
+            Properties.Settings.Default.effect_SpartaRemix = effect_SpartaRemix.Checked;
         }
 
         private void effect_RandomSound_Click(object sender, EventArgs e)

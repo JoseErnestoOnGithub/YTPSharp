@@ -1834,7 +1834,7 @@
 </value>
   </data>
   <data name="textBoxDescription.Text" xml:space="preserve">
-    <value>YTP++ Version 2.3
+    <value>YTP++ Version 2.4
 Part of the YTP+ Project
 
 This software is distributed as Free and Open Source Software (FOSS) and if you have recieved this software as part of a bundle, trade, or purchase; you have been scammed.
@@ -2476,7 +2476,7 @@ By using YTP++, you are agreeing to comply with all licenses mentioned for the s
 Contact may be made to the software's creator (LimeQuartz) via YTP+ Hub, which may be found in the "Help" menu of the application.
 
 Made with ❤ in C#.
-https://github.com/YTP-Plus/YTPPlusPlus</value>
+http://github.com/DevanWolf/YTPPlusPlus</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

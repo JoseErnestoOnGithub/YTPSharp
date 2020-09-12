@@ -43,6 +43,7 @@ namespace YTPPlus
         public bool effect23;
         public bool effect24;
         public bool effect25;
+        public bool effect26;
 
         public bool pluginTest = false;
         public int pluginCount = 0;
@@ -87,7 +88,7 @@ namespace YTPPlus
 
         public void vidThread(object sender, DoWorkEventArgs e)
         {
-            if (sourceList.Count == 0)
+            if (sourceList.Count == 0 && insertTransitionClips == false)
             {
                 Console.WriteLine("No sources added...");
                 return;
@@ -103,6 +104,7 @@ namespace YTPPlus
                 failed = false;
                 for (int i = 0; i < MAX_CLIPS; i++)
                 {
+                    Console.WriteLine("STARTING CLIP " + "video" + i);
                     if (i == 0 && intro)
                     {
                         MAX_CLIPS++;
@@ -110,43 +112,39 @@ namespace YTPPlus
                         Console.WriteLine("Done: " + Decimal.Divide(i, MAX_CLIPS));
                         vidThreadWorker.ReportProgress(Convert.ToInt32(Decimal.Divide(i, MAX_CLIPS) * 100, new CultureInfo("en-US")));
                         Console.WriteLine(toolBox.intro);
-                        Console.WriteLine("STARTING CLIP " + "video" + i);
                         toolBox.copyVideo(toolBox.intro, toolBox.TEMP + "video" + i, width, height);
                     }
                     else
                     {
                         Console.WriteLine("Done: " + Decimal.Divide(i, MAX_CLIPS));
                         vidThreadWorker.ReportProgress(Convert.ToInt32(Decimal.Divide(i, MAX_CLIPS) * 100, new CultureInfo("en-US")));
-                        string sourceToPick = sourceList[randomInt(0, sourceList.Count - 1)].ToString();
-                        Console.WriteLine(sourceToPick);
-                        
-                        decimal source = decimal.Parse(toolBox.getLength(sourceToPick), NumberStyles.Any, new CultureInfo("en-US"));
-                        string output = source.ToString("0.#########################", new CultureInfo("en-US"));
-                        Console.WriteLine(toolBox.getLength(sourceToPick) + " -> " + output + " -> " + double.Parse(output, NumberStyles.Any, new CultureInfo("en-US")));
-                        double boy = double.Parse(output, NumberStyles.Any, new CultureInfo("en-US"));
-                        Console.WriteLine(boy);
-                        Console.WriteLine("STARTING CLIP " + "video" + i);
-                        double startOfClip = randomDouble(0.0, boy - MAX_STREAM_DURATION);
-                        //Console.WriteLine("boy seconds = "+  boy.getLengthSec());
-                        double endOfClip = startOfClip + randomDouble(MIN_STREAM_DURATION, MAX_STREAM_DURATION);
-                        Console.WriteLine("Beginning of clip " + i + ": " + startOfClip.ToString("0.#########################", new CultureInfo("en-US")));
-                        Console.WriteLine("Ending of clip " + i + ": " + endOfClip.ToString("0.#########################", new CultureInfo("en-US")) + ", in seconds: ");
-                        if (randomInt(0, 15) == 15 && insertTransitionClips == true)
+                        if ((randomInt(0, 15) == 15 && insertTransitionClips == true) || sourceList.Count == 0)
                         {
                             Console.WriteLine("Tryina use a diff source");
                             toolBox.copyVideo(toolBox.SOURCES + effectsFactory.pickSource(), toolBox.TEMP + "video" + i, width, height);
                         }
                         else
                         {
+                            string sourceToPick = sourceList[randomInt(0, sourceList.Count - 1)].ToString();
+                            Console.WriteLine(sourceToPick);
+                            decimal source = decimal.Parse(toolBox.getLength(sourceToPick), NumberStyles.Any, new CultureInfo("en-US"));
+                            string output = source.ToString("0.#########################", new CultureInfo("en-US"));
+                            Console.WriteLine(toolBox.getLength(sourceToPick) + " -> " + output + " -> " + double.Parse(output, NumberStyles.Any, new CultureInfo("en-US")));
+                            double boy = double.Parse(output, NumberStyles.Any, new CultureInfo("en-US"));
+                            Console.WriteLine(boy);
+                            double startOfClip = randomDouble(0.0, boy - MAX_STREAM_DURATION);
+                            double endOfClip = startOfClip + randomDouble(MIN_STREAM_DURATION, MAX_STREAM_DURATION);
+                            Console.WriteLine("Beginning of clip " + i + ": " + startOfClip.ToString("0.#########################", new CultureInfo("en-US")));
+                            Console.WriteLine("Ending of clip " + i + ": " + endOfClip.ToString("0.#########################", new CultureInfo("en-US")) + ", in seconds: ");
                             toolBox.snipVideo(sourceToPick, startOfClip, endOfClip, toolBox.TEMP + "video" + i, width, height);
                         }
                         //Add a random effect to the video
                         int effect = 0;
                         if (pluginTest)
-                            effect = 27;
+                            effect = 28;
                         else
                         {
-                            effect = giveProbability(0, 26 + pluginCount);
+                            effect = randomInt(0, 27 + pluginCount);
                             if (effect > 0)
                             Console.WriteLine("STARTING EFFECT ON CLIP " + i + " EFFECT" + effect);
                         }
@@ -253,9 +251,13 @@ namespace YTPPlus
                                 if (effect25 == true)
                                     effectsFactory.effect_Squidward(clipToWorkWith, width, height);
                                 break;
+                            case 26:
+                                if (effect26 == true)
+                                    effectsFactory.effect_SpartaRemix(clipToWorkWith, width, height);
+                                break;
                             default:
-                                if (effect >= 27 && effect <= 26+pluginCount)
-                                    effectsFactory.effect_Plugin(clipToWorkWith, width, height, plugins[rnd.Next(plugins.Count)], startOfClip, endOfClip);
+                                if (effect >= 28 && effect <= 27+pluginCount)
+                                    effectsFactory.effect_Plugin(clipToWorkWith, width, height, plugins[rnd.Next(plugins.Count)]);
                                 break;
                         }
                     }
@@ -297,14 +299,6 @@ namespace YTPPlus
         public YTPGenerator go(ProgressChangedEventHandler progressReporter, RunWorkerCompletedEventHandler completedReporter)
         {
             effectsFactory = new EffectsFactory(toolBox); //hacky but works
-            Console.WriteLine("My FFMPEG is: " + toolBox.FFMPEG);
-            Console.WriteLine("My FFPROBE is: " + toolBox.FFPROBE);
-            Console.WriteLine("My MAGICK is: " + toolBox.MAGICK);
-            Console.WriteLine("My TEMP is: " + toolBox.TEMP);
-            Console.WriteLine("My SOUNDS is: " + toolBox.SOUNDS);
-            Console.WriteLine("My SOURCES is: " + toolBox.SOURCES);
-            Console.WriteLine("My MUSIC is: " + toolBox.MUSIC);
-            Console.WriteLine("My RESOURCES is: " + toolBox.RESOURCES);
             vidThreadWorker.DoWork += new DoWorkEventHandler(vidThread);
             vidThreadWorker.WorkerReportsProgress = true;
             vidThreadWorker.WorkerSupportsCancellation = true;
@@ -318,14 +312,11 @@ namespace YTPPlus
         {
             return done;
         }
-        public static double GetUnixEpoch(DateTime dateTime)
-        {
-            var unixTime = dateTime.ToUniversalTime() -
-                new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-
-            return unixTime.TotalSeconds;
-        }
         public Random rnd = new Random();
+        public int randomInt(int min, int max)
+        {
+            return rnd.Next((max - min) + 1) + min;
+        }
         public double randomDouble(double min, double max)
         {
             double finalVal = -1;
@@ -336,16 +327,6 @@ namespace YTPPlus
             }
             return finalVal;
         }
-        public int randomInt(int min, int max)
-        {
-            return rnd.Next((max - min) + 1) + min;
-            //return new Random((int)GetUnixEpoch(DateTime.UtcNow)).Next((max - min) + 1) + min;
-        }
-        public int giveProbability(int min, int max)
-        {
-            return rnd.Next((max - min) + 1) + min;
-        }
-
         public void cleanUp()
         {
             if (File.Exists(toolBox.TEMP + "temp.mp4"))

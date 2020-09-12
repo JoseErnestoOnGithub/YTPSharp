@@ -77,6 +77,14 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = FFPROBE;
+                if (file.StartsWith("\""))
+                {
+                    file = file.Substring(1);
+                }
+                if (file.EndsWith("\""))
+                {
+                    file = file.Substring(0, file.Length - 1);
+                }
                 startInfo.Arguments = "-i \"" + file + "\" -show_entries format=duration -v quiet -of csv=\"p=0\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
@@ -118,7 +126,15 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = FFMPEG;
-                startInfo.Arguments = "-i \"" + video + "\" -ss " + startTime.ToString("0.#########################", new CultureInfo("en-US")) + " -to " + endTime.ToString("0.#########################", new CultureInfo("en-US")) + " -ar 44100 -vf scale=" + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + ",setsar=1:1,fps=fps=30 -y \"" + output + ".mp4\"";
+                if (video.StartsWith("\""))
+                {
+                    video = video.Substring(1);
+                }
+                if (video.EndsWith("\""))
+                {
+                    video = video.Substring(0, video.Length - 1);
+                }
+                startInfo.Arguments = "-i \"" + video + "\" -ss " + startTime.ToString("0.#########################", new CultureInfo("en-US")) + " -to " + endTime.ToString("0.#########################", new CultureInfo("en-US")) + " -ar 44100 -ac 2 -vf scale=" + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + ",setsar=1:1,fps=fps=30 -y \"" + output + ".mp4\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -157,7 +173,7 @@ namespace YTPPlus
          * @param video input video filename to work with
          * @param output output video filename to save the snipped clip to
          */
-        public void copyVideo(String video, String output, int width, int height)
+        public void copyVideo(string video, string output, int width, int height)
         {
             try
             {
@@ -165,6 +181,14 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = FFMPEG;
+                if (video.StartsWith("\""))
+                {
+                    video = video.Substring(1);
+                }
+                if (video.EndsWith("\""))
+                {
+                    video = video.Substring(0, video.Length - 1);
+                }
                 startInfo.Arguments = "-i \"" + video + "\" -ar 44100 -vf scale=" + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + ",setsar=1:1,fps=fps=30 -y \"" + output + ".mp4\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
@@ -230,10 +254,6 @@ namespace YTPPlus
                     {
                         realcount += 1;
                     }
-                }
-                for (int i = 0; i < realcount; i++)
-                {
-                    command1 += ("[" + i + ":v][" + i + ":a]");
                 }
 
                 command1 += ("concat=n=" + realcount + ":v=1:a=1[outv][outa]\" -map [outv] -map [outa] -y \"" + ou + "\"");

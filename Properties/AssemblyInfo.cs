@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("YTP++")]
 [assembly: AssemblyDescription("YouTube Poop Generator")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("LimeQuartz")]
+[assembly: AssemblyCompany("LimeQuartz/TeamPopplio/Devan Wolf")]
 [assembly: AssemblyProduct("YTP++")]
-[assembly: AssemblyCopyright("Copyleft (ɔ)  2019")]
+[assembly: AssemblyCopyright("Copyleft (ɔ)  2019-2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,4 +32,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("2.4.0.0")]
+[assembly: NeutralResourcesLanguage("en-US")]

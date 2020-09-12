@@ -111,6 +111,7 @@ namespace YTPPlusPlus
             this.effect_GMajor = new System.Windows.Forms.MenuItem();
             this.effect_Dance = new System.Windows.Forms.MenuItem();
             this.effect_Squidward = new System.Windows.Forms.MenuItem();
+            this.effect_SpartaRemix = new System.Windows.Forms.MenuItem();
             this.audioeffects = new System.Windows.Forms.MenuItem();
             this.randomsound = new System.Windows.Forms.MenuItem();
             this.effect_RandomSound = new System.Windows.Forms.MenuItem();
@@ -533,7 +534,7 @@ namespace YTPPlusPlus
             this.AddMaterial.Name = "AddMaterial";
             this.AddMaterial.Size = new System.Drawing.Size(100, 32);
             this.AddMaterial.TabIndex = 29;
-            this.AddMaterial.Text = "Add (*.mp4)";
+            this.AddMaterial.Text = "Add";
             this.AddMaterial.UseVisualStyleBackColor = true;
             this.AddMaterial.Click += new System.EventHandler(this.AddMaterial_Click);
             // 
@@ -767,7 +768,8 @@ namespace YTPPlusPlus
             this.symmetry,
             this.effect_GMajor,
             this.effect_Dance,
-            this.effect_Squidward});
+            this.effect_Squidward,
+            this.effect_SpartaRemix});
             this.videoeffects.Text = "Video Effects";
             // 
             // reverse
@@ -805,8 +807,7 @@ namespace YTPPlusPlus
             this.speedup.Index = 1;
             this.speedup.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.effect_SpeedUpHighPitch,
-            this.effect_SpeedUp,
-            this.effect_HighPitch});
+            this.effect_SpeedUp});
             this.speedup.Text = "Speed Up Clip";
             // 
             // effect_SpeedUpHighPitch
@@ -823,20 +824,12 @@ namespace YTPPlusPlus
             this.effect_SpeedUp.Text = "No Pitch";
             this.effect_SpeedUp.Click += new System.EventHandler(this.effect_SpeedUp_Click);
             // 
-            // effect_SpeedUpHighPitch
-            // 
-            this.effect_HighPitch.Checked = true;
-            this.effect_HighPitch.Index = 2;
-            this.effect_HighPitch.Text = "Pitch Only";
-            this.effect_HighPitch.Click += new System.EventHandler(this.effect_HighPitch_Click);
-            // 
             // slowdown
             // 
             this.slowdown.Index = 2;
             this.slowdown.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.effect_SlowDownLowPitch,
-            this.effect_SlowDown,
-            this.effect_LowPitch});
+            this.effect_SlowDown});
             this.slowdown.Text = "Slow Down Clip";
             // 
             // effect_SlowDownLowPitch
@@ -852,13 +845,6 @@ namespace YTPPlusPlus
             this.effect_SlowDown.Index = 1;
             this.effect_SlowDown.Text = "No Pitch";
             this.effect_SlowDown.Click += new System.EventHandler(this.effect_SlowDown_Click);
-            // 
-            // effect_LowPitch
-            // 
-            this.effect_LowPitch.Checked = true;
-            this.effect_LowPitch.Index = 2;
-            this.effect_LowPitch.Text = "Pitch Only";
-            this.effect_LowPitch.Click += new System.EventHandler(this.effect_LowPitch_Click);
             // 
             // effect_Pixelate
             // 
@@ -940,6 +926,13 @@ namespace YTPPlusPlus
             this.effect_Squidward.Text = "Squidward";
             this.effect_Squidward.Click += new System.EventHandler(this.effect_Squidward_Click);
             // 
+            // effect_SpartaRemix
+            // 
+            this.effect_SpartaRemix.Checked = true;
+            this.effect_SpartaRemix.Index = 10;
+            this.effect_SpartaRemix.Text = "Sparta Remix";
+            this.effect_SpartaRemix.Click += new System.EventHandler(this.effect_SpartaRemix_Click);
+            // 
             // audioeffects
             // 
             this.audioeffects.Index = 1;
@@ -948,7 +941,9 @@ namespace YTPPlusPlus
             this.effect_Chorus,
             this.effect_Vibrato,
             this.effect_Tremolo,
-            this.effect_Earrape});
+            this.effect_Earrape,
+            this.effect_HighPitch,
+            this.effect_LowPitch});
             this.audioeffects.Text = "Audio Effects";
             // 
             // randomsound
@@ -1000,6 +995,20 @@ namespace YTPPlusPlus
             this.effect_Earrape.Index = 4;
             this.effect_Earrape.Text = "Earrape";
             this.effect_Earrape.Click += new System.EventHandler(this.effect_Earrape_Click);
+            // 
+            // effect_HighPitch
+            // 
+            this.effect_HighPitch.Checked = true;
+            this.effect_HighPitch.Index = 5;
+            this.effect_HighPitch.Text = "High Pitch";
+            this.effect_HighPitch.Click += new System.EventHandler(this.effect_HighPitch_Click);
+            // 
+            // effect_LowPitch
+            // 
+            this.effect_LowPitch.Checked = true;
+            this.effect_LowPitch.Index = 6;
+            this.effect_LowPitch.Text = "Low Pitch";
+            this.effect_LowPitch.Click += new System.EventHandler(this.effect_LowPitch_Click);
             // 
             // plugins
             // 
@@ -1063,8 +1072,7 @@ namespace YTPPlusPlus
             // 
             // folderBrowserSounds
             // 
-            this.folderBrowserSounds.Description = "Select a directory to be used for sound effects (Folders must contain *.mp3 files" +
-    ")";
+            this.folderBrowserSounds.Description = "Select a directory to be used for sound effects (Folders must contain *.mp3 files)";
             this.folderBrowserSounds.SelectedPath = "sounds/";
             // 
             // folderBrowserMusic
@@ -1074,8 +1082,7 @@ namespace YTPPlusPlus
             // 
             // folderBrowserResources
             // 
-            this.folderBrowserResources.Description = "Select a directory to be used for resources (Please copy all files from the origi" +
-    "nal resources over)";
+            this.folderBrowserResources.Description = "Select a directory to be used for resources (Please copy all files from the original resources over)";
             this.folderBrowserResources.SelectedPath = "resources/";
             // 
             // openFileDialogSource
@@ -1124,7 +1131,7 @@ namespace YTPPlusPlus
             this.Name = "YTPPlusPlus";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "YTP++ [v2.3]";
+            this.Text = "YTP++ [v2.4]";
             this.Load += new System.EventHandler(this.YTPPlusPlus_Load);
             this.Video.ResumeLayout(false);
             this.Settings.ResumeLayout(false);
@@ -1233,6 +1240,7 @@ namespace YTPPlusPlus
         private System.Windows.Forms.MenuItem effect_GMajor;
         private System.Windows.Forms.MenuItem effect_Dance;
         private System.Windows.Forms.MenuItem effect_Squidward;
+        private System.Windows.Forms.MenuItem effect_SpartaRemix;
         private System.Windows.Forms.MenuItem audioeffects;
         private System.Windows.Forms.MenuItem plugins;
         private System.Windows.Forms.MenuItem randomsound;

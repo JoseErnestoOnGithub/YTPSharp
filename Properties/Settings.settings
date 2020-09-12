@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="YTPPlusPlus.Properties" GeneratedClassName="Settings">
-  <Profiles />
+  <Profiles/>
   <Settings>
     <Setting Name="VLC" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:/Program Files (x86)/VideoLAN/VLC</Value>
+      <Value Profile="(Default)">C:\Program Files (x86)\VideoLAN\VLC</Value>
     </Setting>
     <Setting Name="Theme" Type="System.String" Scope="User">
       <Value Profile="(Default)">Dark</Value>
@@ -81,6 +81,9 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="effect_Squidward" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="effect_SpartaRemix" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="PluginTest" Type="System.Boolean" Scope="User">

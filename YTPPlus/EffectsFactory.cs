@@ -367,7 +367,7 @@ namespace YTPPlus
                 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
                 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startInfo.FileName = toolBox.FFMPEG;
-                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -c:v copy -af vibrato=f=7.0:d=0.5 -y \"" + video + "\"";
+                startInfo.Arguments = "-i \"" + toolBox.TEMP + "temp.mp4\" -af vibrato=f=7.0:d=0.5 -y \"" + video + "\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -1398,7 +1398,7 @@ namespace YTPPlus
                 writer.Close();
                 string randomSound = pickSquidwardMusic();
                 commands.SetValue(toolBox.FFMPEG, 7);
-                args.SetValue("-f concat -safe 0 -i \"" + toolBox.TEMP + "concatsquidward.txt\" -i \"" + toolBox.RESOURCES + "squidward/" + randomSound + "\" -pix_fmt yuv420p -y \"" + video + "\"", 7);
+                args.SetValue("-f concat -safe 0 -i \"" + toolBox.TEMP + "concatsquidward.txt\" -i \"" + toolBox.RESOURCES + "squidward\\" + randomSound + "\" -pix_fmt yuv420p -y \"" + video + "\"", 7);
 
                 int exitValue;
                 for (int i = 0; i < commands.Length; i++)

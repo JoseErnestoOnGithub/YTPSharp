@@ -134,7 +134,7 @@ namespace YTPPlus
                 {
                     video = video.Substring(0, video.Length - 1);
                 }
-                startInfo.Arguments = "-i \"" + video + "\" -ss " + startTime.ToString("0.#########################", new CultureInfo("en-US")) + " -to " + endTime.ToString("0.#########################", new CultureInfo("en-US")) + " -ar 44100 -ac 2 -vf scale=" + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + ",setsar=1:1,fps=fps=30 -y \"" + output + ".mp4\"";
+                startInfo.Arguments = "-i \"" + video + "\" -ss " + startTime.ToString("0.#########################", new CultureInfo("en-US")) + " -to " + endTime.ToString("0.#########################", new CultureInfo("en-US")) + " -ar 44100 -ac 2 -vf scale=" + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + ",setsar=1:1,fps=fps=30 -map_metadata -1 -y \"" + output + ".mp4\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;
@@ -189,7 +189,7 @@ namespace YTPPlus
                 {
                     video = video.Substring(0, video.Length - 1);
                 }
-                startInfo.Arguments = "-i \"" + video + "\" -ar 44100 -vf scale=" + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + ",setsar=1:1,fps=fps=30 -y \"" + output + ".mp4\"";
+                startInfo.Arguments = "-i \"" + video + "\" -vf scale=" + width.ToString("0.#########################", new CultureInfo("en-US")) + "x" + height.ToString("0.#########################", new CultureInfo("en-US")) + ",setsar=1:1,fps=fps=30 -ar 44100 -ac 2 -map_metadata -1 -y \"" + output + ".mp4\"";
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardOutput = true;
                 process.StartInfo = startInfo;

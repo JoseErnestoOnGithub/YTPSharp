@@ -1,3 +1,5 @@
+// This file is part of YTP#, which is an advanced video editor for YTPs
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,9 +11,9 @@ namespace YTPPlus
 {
     public class YTPGenerator
     {
-        public double MAX_STREAM_DURATION = 0.4; //default: 2s
+        public double MAX_STREAM_DURATION = 5; //default: 2s
         public double MIN_STREAM_DURATION = 0.2; //default: 0.2s
-        public int MAX_CLIPS = 20; //default: 5 clips
+        public int MAX_CLIPS = 50; //default: 5 clips
         public string INPUT_FILE; //Input video file
         public string OUTPUT_FILE; //the video file that will be produced in the end
 
@@ -90,7 +92,7 @@ namespace YTPPlus
         {
             if (sourceList.Count == 0 && insertTransitionClips == false)
             {
-                Console.WriteLine("No sources added...");
+                Console.WriteLine("There aren't any sources added.");
                 return;
             }
 
@@ -104,11 +106,11 @@ namespace YTPPlus
                 failed = false;
                 for (int i = 0; i < MAX_CLIPS; i++)
                 {
-                    Console.WriteLine("STARTING CLIP " + "video" + i);
+                    Console.WriteLine("Starting clip " + "video" + i);
                     if (i == 0 && intro)
                     {
                         MAX_CLIPS++;
-                        Console.WriteLine("Intro clip enabled, adding 1 to max clips. New max clips is " + MAX_CLIPS + ".");
+                        Console.WriteLine("Intro clip enabled, adding 1 to maximum number of clips. New maximum number is " + MAX_CLIPS + ".");
                         Console.WriteLine("Done: " + Decimal.Divide(i, MAX_CLIPS));
                         vidThreadWorker.ReportProgress(Convert.ToInt32(Decimal.Divide(i, MAX_CLIPS) * 100, new CultureInfo("en-US")));
                         Console.WriteLine(toolBox.intro);
@@ -120,7 +122,7 @@ namespace YTPPlus
                         vidThreadWorker.ReportProgress(Convert.ToInt32(Decimal.Divide(i, MAX_CLIPS) * 100, new CultureInfo("en-US")));
                         if ((randomInt(0, 15) == 15 && insertTransitionClips == true) || sourceList.Count == 0)
                         {
-                            Console.WriteLine("Tryina use a diff source");
+                            Console.WriteLine("Trying to use a diff source");
                             toolBox.copyVideo(toolBox.SOURCES + effectsFactory.pickSource(), toolBox.TEMP + "video" + i, width, height);
                         }
                         else
@@ -146,7 +148,7 @@ namespace YTPPlus
                         {
                             effect = randomInt(0, 27 + pluginCount);
                             if (effect > 0)
-                            Console.WriteLine("STARTING EFFECT ON CLIP " + i + " EFFECT" + effect);
+                            Console.WriteLine("Starting effect on clip " + i + " Effect" + effect);
                         }
                         String clipToWorkWith = toolBox.TEMP + "video" + i + ".mp4";
                         switch (effect)
@@ -268,7 +270,7 @@ namespace YTPPlus
                     Console.WriteLine("Done: " + Decimal.Divide(MAX_CLIPS - 1, MAX_CLIPS));
                     vidThreadWorker.ReportProgress(Convert.ToInt32(Decimal.Divide(MAX_CLIPS - 1, MAX_CLIPS) * 100, new CultureInfo("en-US")));
                     Console.WriteLine(toolBox.outro);
-                    Console.WriteLine("STARTING CLIP " + "video" + MAX_CLIPS);
+                    Console.WriteLine("Starting clip " + "video" + MAX_CLIPS);
                     toolBox.copyVideo(toolBox.outro, toolBox.TEMP + "video" + MAX_CLIPS, width, height);
                     MAX_CLIPS++;
                 }
@@ -286,7 +288,7 @@ namespace YTPPlus
         }
         void vidThreadWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            // This function fires on the UI thread so it's safe to edit
+            // This function will be called on the UI thread so it's safe to edit
             // the UI control directly, no funny business with Control.Invoke :)
             // Update the progressBar with the integer supplied to us from the
             // ReportProgress() function.
@@ -335,7 +337,7 @@ namespace YTPPlus
             {
                 if (File.Exists(toolBox.TEMP + "video" + i + ".mp4"))
                 {
-                    Console.WriteLine(i + " Exists");
+                    Console.WriteLine(i + " exists");
                     File.Delete(toolBox.TEMP + "video" + i + ".mp4");
                 }
             }

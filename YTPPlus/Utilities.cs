@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading;
 
 /**
- * FFMPEG utilities toolbox for YTP+
+ * FFMPEG utility toolbox for YTP#
  *
  * @author benb
  * @author LimeQuartz
@@ -168,7 +168,7 @@ namespace YTPPlus
         }
 
         /**
-         * Copies a video and encodes it in the proper format without changes.
+         * Copies a video and encodes it into the proper format without changes.
          *
          * @param video input video filename to work with
          * @param output output video filename to save the snipped clip to

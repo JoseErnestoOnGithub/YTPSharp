@@ -3,7 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Threading;
 /**
-* TimeStamp class for YTP+
+* TimeStamp class for YTP#
 *
 * @author benb
 * @author LimeQuartz
@@ -25,7 +25,7 @@ namespace YTPPlus
             while (finalVal < 0)
             {
                 double x = (rnd.NextDouble() * ((max - min) + 0)) + min;
-                finalVal = Math.Round(x * 100.0) / 100.0;
+                finalVal = Math.Round(x * 100) / 100;
             }
             return finalVal;
         }
@@ -50,7 +50,7 @@ namespace YTPPlus
         }
         public string pickSquidwardMusic()
         {
-            string[] d = Directory.GetFiles(toolBox.RESOURCES + "squidward", "*.wav");
+            string[] d = Directory.GetFiles(toolBox.RESOURCES + "weird", "*.wav");
             FileInfo file = new FileInfo(d[randomInt(0, d.Length - 1)]);
             return file.Name;
         }
